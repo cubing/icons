@@ -32,7 +32,8 @@ A very simple display of the icons using span tags. This can just be a quick way
 9. You will need to click the icon you wish to select. In the previous image, the images with a white background and gold/yellow border are selected. The pentagon in Untitled Set is not selected. Only selected images get added to the font.
 10. Click on Generate Font at the bottom. ![Generate Font](http://i.imgur.com/1AQ7lf0.png)
 
-11. This page gives us one last chance to change the class names of the images. Please ensure they are sensible. The class names will be icon-222, for example. Do **not** add the icon- prefix to these names, as that prefix is automatically added.
+11. This page gives us a chance to change the class names of the images. Please ensure they are sensible. The class names will be icon-222, for example. Do **not** add the icon- prefix to these names, as that prefix is automatically added.
+**NOTE:** If you are modifying an official WCA event icon, keep the class name the same! This means don't create "minx2" or "222b", etc. Deselect the old icon, select the new one, and rename the new one appropriately.
 
 12. You are able to edit the preferences found here: ![Preferences](http://i.imgur.com/5uSXgEs.png) Make sure that the font name is cubing-icons, and that "Encode & Embed Font in CSS" is checked. Close the modal when finished.
 
