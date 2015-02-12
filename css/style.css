@@ -1,0 +1,39 @@
+.icons {
+  margin: auto;
+  max-width: 650px;
+  overflow: hidden;
+}
+
+.icons-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.icons-list li {
+  float: left;
+  padding: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+  text-align: center;
+  width: 33%;
+  font-size: 12px;
+}
+
+.icons-list li:hover {
+  color: #fff;
+  background-color: #563d7c;
+}
+
+.icons-list li span {
+  display: block;
+}
+
+.icons .cubing-icon {
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .icons-list li {
+    width: 15%;
+  }
+}
