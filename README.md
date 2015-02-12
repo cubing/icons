@@ -3,14 +3,14 @@ Cubing Icons and Fonts
 
 These fonts were generated with [IcoMoon App](https://icomoon.io/app). If you want to just check out IcoMoon, click [here](https://icomoon.io/).
 
+###Online Demo
+https://cubing.github.io/icons
+
 ###cubing-icons.css
 IcoMoon gives us a style.css from the download. Since this name is too generic, we are intentionally renaming it to cubing-icons.css, and we will continue to do so until we can figure out how to get this name by default.
 
 ###selection.json
 This file can be imported in the [IcoMoon App](https://icomoon.io/app) to edit the fonts. This is preferred as opposed to creating a new font every time we want to add icons to the font files.
-
-###demo.html
-A very simple display of the icons using span tags. This can just be a quick way to play with the css/markup.
 
 #How to modify the fonts
 1. Go to the [IcoMoon App](https://icomoon.io/app).
