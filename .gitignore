@@ -1,0 +1,6 @@
+www/
+
+node_modules/
+
+# Courtesy of https://github.com/shinnn/gulp-gh-pages
+.publish
