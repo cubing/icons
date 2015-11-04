@@ -17,7 +17,7 @@ var SRC_FILES = [ SVG_FILES, TEMPLATE_FILES ];
 
 var runTimestamp = Math.round(Date.now()/1000);
 
-gulp.task('default', function() {
+gulp.task('default', ['copySvgs'], function() {
   var fontCss = fontCssPipe();
   return gulp.src(SVG_FILES)
 
@@ -44,6 +44,11 @@ gulp.task('default', function() {
       })
     .pipe(gulp.dest('www/fonts/'))
     .pipe(fontCss);
+});
+
+gulp.task('copySvgs', function() {
+  return gulp.src(['svgs/**/*'])
+           .pipe(gulp.dest('www/svgs/'));
 });
 
 gulp.task('watch', function() {

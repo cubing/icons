@@ -99,7 +99,7 @@
           <h1 class="text-center" id="how-to">How to Use</h1>
           <ol>
             <li>
-              Download the icons <a href="https://github.com/cubing/icons/archive/master.zip">here</a>.
+              Download the icons <a href="https://github.com/cubing/icons/archive/gh-pages.zip">here</a>.
               Extract the files and place cubing-icons.css into your css directory.
             </li>
             <li>
