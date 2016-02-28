@@ -66,10 +66,10 @@ gulp.task('deploy', ['default'], function() {
 
 // Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
 gulp.task('deploy-travis', ['default'], function() {
-  if(!process.env.TRAVIS_TAG) {
-    console.log("Not a tag, not deploying");
+  if(process.env.TRAVIS_PULL_REQUEST !== "false") {
+    console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST}, not deploying`);
   } else {
-    console.log("==> Building and deploying tag $TRAVIS_TAG <==");
+    console.log(`==> Building and deploying <==`);
     return gulp.src('./www/**/*')
       .pipe(ghPages({
         remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
