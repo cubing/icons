@@ -24,10 +24,16 @@
         list-style: none;
       }
 
+      .icons-list li a {
+        /* Override default link color so the <li> colors can come through.*/
+        color: inherit;
+      }
+
       .icons-list li {
+        color: black;
+        background-color: #f9f9f9;
         float: left;
         padding: 5px;
-        background-color: #f9f9f9;
         border: 1px solid #fff;
         text-align: center;
         width: 33%;
@@ -37,6 +43,11 @@
       .icons-list li:hover {
         color: #fff;
         background-color: #563d7c;
+      }
+
+      .icons-list li:target {
+        color: black;
+        background-color: yellow;
       }
 
       .icons-list li span {
@@ -120,9 +131,11 @@
           <div class="icons">
             <ul class="icons-list">
               <% _.each(glyphs, function(glyph) { %>
-                <li>
-                  <span class="cubing-icon icon-<%= glyph.name %>"></span>
-                  <span>cubing-icon icon-<%= glyph.name %></span>
+                <li id="<%= glyph.name %>">
+                  <a href="#<%= glyph.name %>">
+                    <span class="cubing-icon icon-<%= glyph.name %>"></span>
+                    <span>cubing-icon icon-<%= glyph.name %></span>
+                  </a>
                 </li>
               <% }); %>
             </ul>
