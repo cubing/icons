@@ -1,4 +1,4 @@
-# Cubing Icons and Fonts
+# Cubing Icons and Fonts [![Build Status](https://travis-ci.org/cubing/icons.svg?branch=master)](https://travis-ci.org/cubing/icons)
 
 ## Demo
 <https://cubing.github.io/icons>
