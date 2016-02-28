@@ -47,7 +47,7 @@ gulp.task('default', ['copySvgs'], function() {
 });
 
 gulp.task('copySvgs', function() {
-  return gulp.src(['svgs/**/*'])
+  return gulp.src(['svgs/**/*.*'])
            .pipe(gulp.dest('www/svgs/'));
 });
 
@@ -60,7 +60,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('deploy', ['default'], function() {
-  return gulp.src('./www/**/*')
+  return gulp.src('./www/**/*.*')
     .pipe(ghPages());
 });
 
@@ -70,7 +70,7 @@ gulp.task('deploy-travis', ['default'], function() {
     console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST}, not deploying`);
   } else {
     console.log(`==> Building and deploying <==`);
-    return gulp.src('./www/**/*')
+    return gulp.src('./www/**/*.*')
       .pipe(ghPages({
         remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
       }));
