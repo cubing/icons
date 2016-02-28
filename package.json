@@ -4,12 +4,12 @@
   "description": "Cubing Icons and Fonts",
   "dependencies": {},
   "devDependencies": {
-    "del": "^2.0.2",
-    "gulp": "^3.9.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
     "gulp-consolidate": "^0.1.2",
     "gulp-gh-pages": "^0.5.4",
-    "gulp-iconfont": "^5.0.0",
+    "gulp-iconfont": "^6.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-watch": "^4.3.5"
   },
