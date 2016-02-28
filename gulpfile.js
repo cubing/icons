@@ -7,6 +7,7 @@ var watch = require('gulp-watch');
 var rename = require('gulp-rename');
 var ghPages = require('gulp-gh-pages');
 var iconfont = require('gulp-iconfont');
+var runSequence = require('run-sequence');
 var gulpImagemin = require('gulp-imagemin');
 var consolidate = require('gulp-consolidate');
 
@@ -59,13 +60,16 @@ gulp.task('watch', function() {
   });
 });
 
-gulp.task('deploy', ['default'], function() {
+gulp.task('deployHelper', function() {
   return gulp.src('./www/**/*.*')
     .pipe(ghPages());
 });
+gulp.task('deploy', function(done) {
+  return runSequence('clean', 'default', 'deployHelper', done);
+});
 
 // Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
-gulp.task('deploy-travis', ['default'], function() {
+gulp.task('deployTravisHelper', function() {
   if(process.env.TRAVIS_PULL_REQUEST !== "false") {
     console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST}, not deploying`);
   } else {
@@ -75,6 +79,9 @@ gulp.task('deploy-travis', ['default'], function() {
         remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
       }));
   }
+});
+gulp.task('deployTravis', function(done) {
+  return runSequence('clean', 'default', 'deployTravisHelper', done);
 });
 
 gulp.task('clean', function() {
@@ -100,9 +107,8 @@ function fontCssPipe() {
         className: 'cubing-icon',
       }))
       .pipe(rename('cubing-icons.css'))
-      .pipe(gulp.dest('www/css/'));
-
-    cb();
+      .pipe(gulp.dest('www/css/'))
+      .on('end', cb);
   });
 }
 
