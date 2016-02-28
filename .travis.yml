@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "4.1"
+before_script:
+  - npm install -g gulp
+script: gulp deploy-travis
+env:
+  global:
+  # Set the GH_TOKEN environment variable needed by "gulp deploy-travis"
+  - secure: "R51ctgJqfGpZYcMtUgubMRUCyNZZFEpVkeJnakjxdGDul9yG0TDrzIef+TD9gjvADXSQqv6fyYN5hptbEI75Kcv4ga2VrUiHMbM6VIzxQoNseVw+EPL+cdjtaFriy0Hn9ho74khXiJ+mDC/iQR+TuZ3UEv+1tQ1ssQw2trciA/s="

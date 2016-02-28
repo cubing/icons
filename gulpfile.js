@@ -64,6 +64,19 @@ gulp.task('deploy', ['default'], function() {
     .pipe(ghPages());
 });
 
+// Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
+gulp.task('deploy-travis', ['default'], function() {
+  if(!process.env.TRAVIS_TAG) {
+    console.log("Not a tag, not deploying");
+  } else {
+    console.log("==> Building and deploying tag $TRAVIS_TAG <==");
+    return gulp.src('./www/**/*')
+      .pipe(ghPages({
+        remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
+      }));
+  }
+});
+
 gulp.task('clean', function() {
   return del('www');
 });
