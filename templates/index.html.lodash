@@ -102,7 +102,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
-          <h1 class="text-center"><span class="cubing-icon icon-clock"></span> It's about time you showed up!</h1>
+          <h1 class="text-center"><span class="cubing-icon event-clock"></span> It's about time you showed up!</h1>
           <p>
             Cubing Icons that are allowed (<a href="https://github.com/cubing/icons/blob/master/LICENSE">see license</a>) for all projects! There should probably be more text here.
           </p>
@@ -120,7 +120,7 @@
               </code>
             </li>
             <li>
-              To use the icons, such as <span class="cubing-icon icon-333"></span>, use the following code: <code>&lt;span class="cubing-icon icon-333"&gt;&lt;/span&gt;</code>
+              To use the icons, such as <span class="cubing-icon event-333"></span>, use the following code: <code>&lt;span class="cubing-icon icon-333"&gt;&lt;/span&gt;</code>
             </li>
             <li>
               See below for a full list of icons.
