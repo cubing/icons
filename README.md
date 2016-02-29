@@ -13,4 +13,6 @@ We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont
 
 ## Deploy to GitHub Pages
 
-- `gulp deploy`
+TravisCI automatically runs `gulp deployTravis`, but that's only for the main
+repository. If you want to see your changes on your own fork,
+you can run `gulp deploy`.
