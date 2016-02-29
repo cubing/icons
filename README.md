@@ -8,6 +8,7 @@
 We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont).
 
 - `npm install`
+- Install [potrace](http://potrace.sourceforge.net/).
 - `gulp` or `gulp watch`
 
 ## Deploy to GitHub Pages

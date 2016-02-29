@@ -6,10 +6,14 @@ node_js:
 cache:
   directories:
     - node_modules
+addons:
+  apt:
+    sources:
+      - potrace
 before_script:
   - npm install -g gulp
 script: gulp deployTravis
 env:
   global:
   # Set the GH_TOKEN environment variable needed by "gulp deploy-travis"
-  - secure: "R51ctgJqfGpZYcMtUgubMRUCyNZZFEpVkeJnakjxdGDul9yG0TDrzIef+TD9gjvADXSQqv6fyYN5hptbEI75Kcv4ga2VrUiHMbM6VIzxQoNseVw+EPL+cdjtaFriy0Hn9ho74khXiJ+mDC/iQR+TuZ3UEv+1tQ1ssQw2trciA/s="
+    - secure: "R51ctgJqfGpZYcMtUgubMRUCyNZZFEpVkeJnakjxdGDul9yG0TDrzIef+TD9gjvADXSQqv6fyYN5hptbEI75Kcv4ga2VrUiHMbM6VIzxQoNseVw+EPL+cdjtaFriy0Hn9ho74khXiJ+mDC/iQR+TuZ3UEv+1tQ1ssQw2trciA/s="

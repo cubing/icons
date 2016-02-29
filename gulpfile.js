@@ -1,14 +1,19 @@
 var fs = require('fs');
 var del = require('del');
 var gulp = require('gulp');
+var stream = require('stream');
+var jimp = require('gulp-jimp');
 var batch = require('gulp-batch');
 var through = require('through2');
 var watch = require('gulp-watch');
 var rename = require('gulp-rename');
+var replace = require('gulp-replace');
+var svg2png = require('gulp-svg2png');
 var ghPages = require('gulp-gh-pages');
 var iconfont = require('gulp-iconfont');
 var runSequence = require('run-sequence');
 var gulpImagemin = require('gulp-imagemin');
+var child_process = require('child_process');
 var consolidate = require('gulp-consolidate');
 
 var FONT_NAME = 'cubing-icons';
@@ -22,10 +27,28 @@ gulp.task('default', ['copySvgs'], function() {
   var fontCss = fontCssPipe();
   return gulp.src(SVG_FILES)
 
+    // We convert the SVGs to PNG, to BMP, and then back to SVG
+    // in order to produce the simplest SVGs possible, as iconfont
+    // is not very resilient in what it accepts.
+    .pipe(svg2png())
+    .pipe(jimp({
+      '': {
+        background: '#FFFFFF', // Convert transparent to white
+        type: 'bitmap',
+      }
+    }))
+    .pipe(gulp.dest('www/svg2bmp/'))
+    .pipe(bmp2svg())
+
     // iconfont doesn't handle transformations, so we run our images through
     // gulp-imagemin first. See:
     //  https://github.com/nfroidure/svgicons2svgfont/issues/6.
     .pipe(gulpImagemin())
+
+    // Dirty hack here to resize SVGs back to 500x500. For some reason
+    // potrace is doing some scaling that iconfont doesn't like.
+    .pipe(replace(/(<svg.*)width="[^"]*"/g, '$1width="500"'))
+    .pipe(replace(/(<svg.*)height="[^"]*"/g, '$1height="500"'))
 
     .pipe(iconfont({
       fontName: FONT_NAME,
@@ -48,7 +71,7 @@ gulp.task('default', ['copySvgs'], function() {
 });
 
 gulp.task('copySvgs', function() {
-  return gulp.src(['svgs/**/*.*'])
+  return gulp.src(SVG_FILES)
            .pipe(gulp.dest('www/svgs/'));
 });
 
@@ -112,3 +135,32 @@ function fontCssPipe() {
   });
 }
 
+function bmp2svg() {
+  return through.obj(function(file, enc, next) {
+
+    var potraceProcess = child_process.spawn(
+      'potrace', ['-o', '-', '-b', 'svg'], {
+         stdio: [ 'pipe', 'pipe', 'inherit' ]
+       }
+    );
+
+    potraceProcess.stdin.write(file.contents);
+    potraceProcess.stdin.end();
+
+    // TODO - there must be some way of avoiding this...
+    var buffer = new Buffer('');
+    potraceProcess.stdout.on('data', function(data) {
+      buffer = Buffer.concat([ buffer, data ]);
+    });
+
+    potraceProcess.once('close', function(code) {
+      if(code !== 0) {
+        next(new Error("potrace exited with code " + code, null));
+      } else {
+        file.extname = ".svg";
+        file.contents = buffer;//potraceProcess.stdout;
+        next(null, file);
+      }
+    });
+  });
+}

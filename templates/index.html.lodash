@@ -130,7 +130,7 @@
           <h1 class="text-center" id="icons-list">Cubing Icons List</h1>
           <div class="icons">
             <ul class="icons-list">
-              <% _.each(glyphs, function(glyph) { %>
+              <% _.each(_.sortBy(glyphs, 'name'), function(glyph) { %>
                 <li id="<%= glyph.name %>">
                   <a href="#<%= glyph.name %>">
                     <span class="cubing-icon icon-<%= glyph.name %>"></span>
