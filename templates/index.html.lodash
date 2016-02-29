@@ -133,8 +133,8 @@
               <% _.each(_.sortBy(glyphs, 'name'), function(glyph) { %>
                 <li id="<%= glyph.name %>">
                   <a href="#<%= glyph.name %>">
-                    <span class="cubing-icon icon-<%= glyph.name %>"></span>
-                    <span>cubing-icon icon-<%= glyph.name %></span>
+                    <span class="cubing-icon <%= glyph.name %>"></span>
+                    <span>cubing-icon <%= glyph.name %></span>
                   </a>
                 </li>
               <% }); %>

@@ -1,6 +1,7 @@
 var fs = require('fs');
 var del = require('del');
 var gulp = require('gulp');
+var path = require('path');
 var stream = require('stream');
 var jimp = require('gulp-jimp');
 var batch = require('gulp-batch');
@@ -31,13 +32,20 @@ gulp.task('default', ['copySvgs'], function() {
     // in order to produce the simplest SVGs possible, as iconfont
     // is not very resilient in what it accepts.
     .pipe(svg2png())
+
+    // svg2png looks for files on the filesystem by name, so we cannot
+    // rename until after svg2png. We should really fix this bug in svg2png.
+    .pipe(through.obj(function(file, enc, next) {
+      file.path = path.join(path.dirname(file.path), file.relative.replace("/", "-"));
+      next(null, file);
+    }))
+
     .pipe(jimp({
       '': {
         background: '#FFFFFF', // Convert transparent to white
         type: 'bitmap',
       }
     }))
-    .pipe(gulp.dest('www/svg2bmp/'))
     .pipe(bmp2svg())
 
     // iconfont doesn't handle transformations, so we run our images through
