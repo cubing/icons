@@ -158,7 +158,7 @@ function bmp2svg() {
         next(new Error("potrace exited with code " + code, null));
       } else {
         file.extname = ".svg";
-        file.contents = buffer;//potraceProcess.stdout;
+        file.contents = buffer;
         next(null, file);
       }
     });

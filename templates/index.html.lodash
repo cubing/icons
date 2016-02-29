@@ -55,7 +55,7 @@
       }
 
       .icons .cubing-icon {
-        font-size: 28px;
+        font-size: 5em;
       }
 
       @media (min-width: 768px) {
