@@ -120,7 +120,7 @@
               </code>
             </li>
             <li>
-              To use the icons, such as <span class="cubing-icon event-333"></span>, use the following code: <code>&lt;span class="cubing-icon icon-333"&gt;&lt;/span&gt;</code>
+              To use the icons, such as <span class="cubing-icon event-333"></span>, use the following code: <code>&lt;span class="cubing-icon event-333"&gt;&lt;/span&gt;</code>
             </li>
             <li>
               See below for a full list of icons.
