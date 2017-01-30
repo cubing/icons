@@ -19,9 +19,15 @@
         overflow: hidden;
       }
 
+      .tiny-icons {
+        text-align: center;
+      }
+
       .icons-list {
         padding-left: 0;
         list-style: none;
+        display: inline-block;
+        text-align: center;
       }
 
       .icons-list li a {
@@ -32,7 +38,7 @@
       .icons-list li {
         color: black;
         background-color: #f9f9f9;
-        float: left;
+        display: inline-block;
         padding: 5px;
         border: 1px solid #fff;
         text-align: center;
@@ -128,6 +134,13 @@
           </ol>
 
           <h1 class="text-center" id="icons-list">Cubing Icons List</h1>
+
+          <div class="tiny-icons">
+            <% _.each(_.sortBy(glyphs, 'name'), function(glyph) { %>
+              <span class="cubing-icon <%= glyph.name %>"></span>
+            <% }); %>
+          </div>
+
           <div class="icons">
             <ul class="icons-list">
               <% _.each(_.sortBy(glyphs, 'name'), function(glyph) { %>
