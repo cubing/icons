@@ -102,7 +102,9 @@ gulp.task('deploy', function(done) {
 // Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
 gulp.task('deployTravisHelper', function() {
   if(process.env.TRAVIS_PULL_REQUEST !== "false") {
-    console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST}, not deploying`);
+    console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST} on branch ${process.env.TRAVIS_BRANCH}, not deploying`);
+  } else if(process.env.TRAVIS_BRANCH !== "master") {
+    console.log(`Building non-master branch ${process.env.TRAVIS_BRANCH}, not deploying`);
   } else {
     console.log(`==> Building and deploying <==`);
     return gulp.src('./www/**/*.*')
