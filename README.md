@@ -9,7 +9,7 @@ We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont
 
 - `npm install`
 - Install [potrace](http://potrace.sourceforge.net/).
-- `gulp` or `gulp watch` - Open `www/index.html` in your web browser.
+- `npm run build` or `npm run watch` - Open `www/index.html` in your web browser.
 
 ## Deploy to GitHub Pages
 
