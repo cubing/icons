@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+<rect x="20.5" y="86.6" fill="#000000" width="72.8" height="72.8"/>
+<rect x="20.5" y="190.6" fill="#000000" width="72.8" height="72.8"/>
+<rect x="109.4" y="79.2" fill="#000000" width="49.7" height="49.7"/>
+<rect x="109.4" y="150.2" fill="#000000" width="49.7" height="49.7"/>
+<rect x="109.4" y="221.1" fill="#000000" width="49.7" height="49.7"/>
+<rect x="179.1" y="73.5" fill="#000000" width="38.4" height="38.4"/>
+<rect x="179.1" y="128.4" fill="#000000" width="38.4" height="38.4"/>
+<rect x="179.1" y="183.3" fill="#000000" width="38.4" height="38.4"/>
+<rect x="179.1" y="238.1" fill="#000000" width="38.4" height="38.4"/>
+<rect x="234.4" y="65.2" fill="#000000" width="32.7" height="32.7"/>
+<rect x="234.4" y="111.9" fill="#000000" width="32.7" height="32.7"/>
+<rect x="234.4" y="158.6" fill="#000000" width="32.7" height="32.7"/>
+<rect x="234.4" y="205.3" fill="#000000" width="32.7" height="32.7"/>
+<rect x="234.4" y="252" fill="#000000" width="32.7" height="32.7"/>
+<circle fill="#000000" cx="380" cy="95" r="70"/>
+<rect x="350" y="180" fill="#000000" width="90" height="25"/>
+<rect x="350" y="180" fill="#000000" width="25" height="90"/>
+<rect x="390" y="220" fill="#000000" width="90" height="90"/>
+<path fill="#000000" d="M 20 450 L 40 470 L 80 470 L 80 466 L 50 466 L 50 460 L 90 460 L 140 490 L 130 490 L 100 480 L 40 480 L 20 460 z"/>
+<rect x="40" y="340" fill="#000000" width="100" height="100"/>
+<path fill="#000000" d="M 240 340 l -76 55 l 29 90 l 94 0 l 29 -90 z"/>
+<path fill="#000000" d="M 340 490 l 160 0 l -80 -138.6 z"/> 
+</svg>
