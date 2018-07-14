@@ -8,12 +8,10 @@ var batch = require('gulp-batch');
 var through = require('through2');
 var watch = require('gulp-watch');
 var rename = require('gulp-rename');
-var replace = require('gulp-replace');
 var svg2png = require('gulp-svg2png');
 var ghPages = require('gulp-gh-pages');
 var iconfont = require('gulp-iconfont');
 var runSequence = require('run-sequence');
-var gulpImagemin = require('gulp-imagemin');
 var child_process = require('child_process');
 var consolidate = require('gulp-consolidate');
 
@@ -48,20 +46,12 @@ gulp.task('default', ['copySvgs'], function() {
     }))
     .pipe(bmp2svg())
 
-    // iconfont doesn't handle transformations, so we run our images through
-    // gulp-imagemin first. See:
-    //  https://github.com/nfroidure/svgicons2svgfont/issues/6.
-    .pipe(gulpImagemin())
-
-    // Dirty hack here to resize SVGs back to 500x500. For some reason
-    // potrace is doing some scaling that iconfont doesn't like.
-    .pipe(replace(/(<svg.*)width="[^"]*"/g, '$1width="500"'))
-    .pipe(replace(/(<svg.*)height="[^"]*"/g, '$1height="500"'))
-
     .pipe(iconfont({
       fontName: FONT_NAME,
       formats: ['ttf', 'woff'],
       timestamp: runTimestamp, // get consistent builds when watching files
+      normalize: true,
+      fontHeight: 1000,
     }))
       .on('glyphs', function(glyphs, options) {
         // Stash glyphs so we can generate the CSS at the end.
