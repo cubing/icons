@@ -43,7 +43,7 @@ gulp.task('default', ['copySvgs'], function() {
     .pipe(jimp({
       '': {
         background: '#FFFFFF', // Convert transparent to white
-        type: 'bitmap',
+        type: 'bmp',
       }
     }))
     .pipe(bmp2svg())
