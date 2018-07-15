@@ -4,19 +4,19 @@
   "description": "Cubing Icons and Fonts",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "*",
+    "@babel/register": "*",
+    "@babel/preset-env": "*",
     "bufferstreams": "*",
     "del": "*",
-    "gulp": "^3.9.1",
-    "gulp-batch": "*",
+    "gulp": "*",
     "gulp-consolidate": "*",
     "gulp-gh-pages": "*",
     "gulp-iconfont": "*",
     "gulp-jimp": "*",
     "gulp-rename": "*",
     "gulp-svg2png": "*",
-    "gulp-watch": "*",
     "lodash": "*",
-    "run-sequence": "*",
     "through2": "*"
   },
   "scripts": {
