@@ -12,6 +12,7 @@ var svg2png = require('gulp-svg2png');
 var ghPages = require('gulp-gh-pages');
 var iconfont = require('gulp-iconfont');
 var runSequence = require('run-sequence');
+var bufferstreams = require('bufferstreams');
 var child_process = require('child_process');
 var consolidate = require('gulp-consolidate');
 
@@ -114,8 +115,14 @@ gulp.task('clean', function() {
 function fontCssPipe() {
   var fontFiles = [];
   return through.obj(function(file, enc, cb) {
-    fontFiles[file.extname.substring(1)] = file.contents.toString('base64');
-    cb();
+      file.contents.pipe(new bufferstreams(function(err, buf, cb) {
+        if(err) {
+          throw err;
+        }
+
+        fontFiles[file.extname.substring(1)] = buf.toString('base64');
+        cb();
+      })).on('finish', cb);
   }, function(cb) {
     // Modified from https://www.npmjs.com/package/gulp-iconfont
     var fontUrls = {
