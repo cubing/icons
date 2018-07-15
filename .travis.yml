@@ -9,9 +9,7 @@ cache:
 before_install:
   - sudo apt-get -qq update
   - sudo apt-get install -y potrace
-before_script:
-  - npm install -g gulp
-script: gulp deployTravis
+script: npm run deploy
 env:
   global:
   # Set the GH_TOKEN environment variable needed by "gulp deploy-travis"
