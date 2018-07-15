@@ -1,17 +1,12 @@
-var fs = require('fs');
 var del = require('del');
 var gulp = require('gulp');
 var path = require('path');
-var stream = require('stream');
 var jimp = require('gulp-jimp');
-var batch = require('gulp-batch');
 var through = require('through2');
-var watch = require('gulp-watch');
 var rename = require('gulp-rename');
 var svg2png = require('gulp-svg2png');
 var ghPages = require('gulp-gh-pages');
 var iconfont = require('gulp-iconfont');
-var runSequence = require('run-sequence');
 var bufferstreams = require('bufferstreams');
 var child_process = require('child_process');
 var consolidate = require('gulp-consolidate');
@@ -23,7 +18,10 @@ var SRC_FILES = [ SVG_FILES, TEMPLATE_FILES ];
 
 var runTimestamp = Math.round(Date.now()/1000);
 
-gulp.task('default', ['copySvgs'], function() {
+const defaultTask = gulp.parallel(copySvgs, css);
+export default defaultTask;
+
+export function css() {
   var fontCss = fontCssPipe();
   return gulp.src(SVG_FILES)
 
@@ -67,35 +65,31 @@ gulp.task('default', ['copySvgs'], function() {
       })
     .pipe(gulp.dest('www/fonts/'))
     .pipe(fontCss);
-});
+};
 
-gulp.task('copySvgs', function() {
+export function copySvgs() {
   return gulp.src(SVG_FILES)
            .pipe(gulp.dest('www/svgs/'));
+}
+
+export const watch = gulp.series(defaultTask, function watching() {
+  gulp.watch(SRC_FILES, defaultTask);
 });
 
-gulp.task('watch', function() {
-  gulp.start('default', function() {
-    watch(SRC_FILES, batch(function(events, done) {
-      gulp.start('default', done);
-    }));
-  });
-});
-
-gulp.task('deployHelper', function() {
+export function deployHelper() {
   return gulp.src('./www/**/*.*')
     .pipe(ghPages());
-});
-gulp.task('deploy', function(done) {
-  return runSequence('clean', 'default', 'deployHelper', done);
-});
+}
+export const deploy = gulp.series(clean, defaultTask, deployHelper);
 
 // Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
-gulp.task('deployTravisHelper', function() {
+export function deployTravisHelper(done) {
   if(process.env.TRAVIS_PULL_REQUEST !== "false") {
     console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST} on branch ${process.env.TRAVIS_BRANCH}, not deploying`);
+    done();
   } else if(process.env.TRAVIS_BRANCH !== "master") {
     console.log(`Building non-master branch ${process.env.TRAVIS_BRANCH}, not deploying`);
+    done();
   } else {
     console.log(`==> Building and deploying <==`);
     return gulp.src('./www/**/*.*')
@@ -103,14 +97,12 @@ gulp.task('deployTravisHelper', function() {
         remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
       }));
   }
-});
-gulp.task('deployTravis', function(done) {
-  return runSequence('clean', 'default', 'deployTravisHelper', done);
-});
+};
+export const deployTravis = gulp.series(clean, defaultTask, deployTravisHelper);
 
-gulp.task('clean', function() {
+export function clean() {
   return del('www');
-});
+};
 
 function fontCssPipe() {
   var fontFiles = [];
