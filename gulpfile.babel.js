@@ -76,15 +76,12 @@ export const watch = gulp.series(defaultTask, function watching() {
   gulp.watch(SRC_FILES, defaultTask);
 });
 
-export function deployHelper() {
-  return gulp.src('./www/**/*.*')
-    .pipe(ghPages());
-}
-export const deploy = gulp.series(clean, defaultTask, deployHelper);
-
-// Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
-export function deployTravisHelper(done) {
-  if(process.env.TRAVIS_PULL_REQUEST !== "false") {
+export const deploy = gulp.series(clean, defaultTask, function deploying(done) {
+  // Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
+  if(process.env.TRAVIS !== "true") {
+    return gulp.src('./www/**/*.*')
+      .pipe(ghPages());
+  } else if(process.env.TRAVIS_PULL_REQUEST !== "false") {
     console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST} on branch ${process.env.TRAVIS_BRANCH}, not deploying`);
     done();
   } else if(process.env.TRAVIS_BRANCH !== "master") {
@@ -97,8 +94,7 @@ export function deployTravisHelper(done) {
         remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
       }));
   }
-};
-export const deployTravis = gulp.series(clean, defaultTask, deployTravisHelper);
+});
 
 export function clean() {
   return del('www');
