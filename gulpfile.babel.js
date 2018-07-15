@@ -147,7 +147,7 @@ function bmp2svg() {
     potraceProcess.stdin.end();
 
     // TODO - there must be some way of avoiding this...
-    var buffer = new Buffer('');
+    var buffer = new Buffer.alloc(0);
     potraceProcess.stdout.on('data', function(data) {
       buffer = Buffer.concat([ buffer, data ]);
     });
