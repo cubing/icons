@@ -5,11 +5,11 @@
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.0.0-beta",
-    "@babel/register": "^7.0.0-beta",
     "@babel/preset-env": "^7.0.0-beta",
+    "@babel/register": "^7.0.0-beta",
     "bufferstreams": "*",
     "del": "*",
-    "gulp": "*",
+    "gulp": "^4.0.0",
     "gulp-consolidate": "*",
     "gulp-gh-pages": "*",
     "gulp-iconfont": "*",
