@@ -11,7 +11,7 @@
     "del": "*",
     "gulp": "^4.0.0",
     "gulp-consolidate": "*",
-    "gulp-gh-pages": "*",
+    "gulp-gh-pages": "next",
     "gulp-iconfont": "*",
     "gulp-jimp": "*",
     "gulp-rename": "*",
