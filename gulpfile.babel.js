@@ -84,8 +84,8 @@ export const deploy = gulp.series(clean, defaultTask, function deploying(done) {
   } else if(process.env.TRAVIS_PULL_REQUEST !== "false") {
     console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST} on branch ${process.env.TRAVIS_BRANCH}, not deploying`);
     done();
-  } else if(process.env.TRAVIS_BRANCH !== "master") {
-    console.log(`Building non-master branch ${process.env.TRAVIS_BRANCH}, not deploying`);
+  } else if(process.env.TRAVIS_BRANCH !== "main") {
+    console.log(`Building non-main branch ${process.env.TRAVIS_BRANCH}, not deploying`);
     done();
   } else {
     console.log(`==> Building and deploying <==`);
