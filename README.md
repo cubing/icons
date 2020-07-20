@@ -14,7 +14,7 @@ We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont
 ## Deploy to GitHub Pages
 
 ```
-gulp deploy
+npm run deploy
 ```
 
 This will deploy to the `gh-pages` branch of whatever remote your `origin` is
