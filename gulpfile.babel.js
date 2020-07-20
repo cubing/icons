@@ -91,7 +91,7 @@ export const deploy = gulp.series(clean, defaultTask, function deploying(done) {
     console.log(`==> Building and deploying <==`);
     return gulp.src('./www/**/*.*')
       .pipe(ghPages({
-        remoteUrl: `https://${process.env.GH_TOKEN}@github.com/cubing/icons.git`
+        remoteUrl: 'git@github.com:cubing/icons.git',
       }));
   }
 });

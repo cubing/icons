@@ -13,8 +13,4 @@ script:
   # Unfortunately, `npm audit` is failing, and it doesn't look like there's any easy fix.
   # See https://github.com/cubing/icons/issues/55
   # - npm audit
-  - npm run deploy
-env:
-  global:
-  # Set the GH_TOKEN environment variable needed by "gulp deploy-travis"
-    - secure: "R51ctgJqfGpZYcMtUgubMRUCyNZZFEpVkeJnakjxdGDul9yG0TDrzIef+TD9gjvADXSQqv6fyYN5hptbEI75Kcv4ga2VrUiHMbM6VIzxQoNseVw+EPL+cdjtaFriy0Hn9ho74khXiJ+mDC/iQR+TuZ3UEv+1tQ1ssQw2trciA/s="
+  - ./load-ssh-key npm run deploy
