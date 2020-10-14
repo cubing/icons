@@ -23,7 +23,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
     "watch": "gulp watch",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "version": "npm run build",
+    "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish"
   },
   "repository": {
     "type": "git",

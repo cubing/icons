@@ -11,7 +11,15 @@ We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont
 - Install [potrace](http://potrace.sourceforge.net/).
 - `npm run build` or `npm run watch` - Open `www/index.html` in your web browser.
 
-## Deploy to GitHub Pages
+## Releasing
+
+### Bump version and deploy to npmjs
+
+```
+npm version major|minor|patch -m "Upgrade to %s for reasons"
+```
+
+### (Optional, this is handled automatically) Deploy to GitHub Pages
 
 ```
 npm run deploy
