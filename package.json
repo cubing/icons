@@ -1,6 +1,6 @@
 {
-  "name": "cubing-icons",
-  "version": "1.0.0",
+  "name": "@cubing/icons",
+  "version": "1.0.2",
   "description": "Cubing Icons and Fonts",
   "dependencies": {},
   "devDependencies": {
@@ -27,12 +27,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/cubing/icons.git"
+    "url": "git+https://github.com/cubing/icons.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/cubing/icons.git/issues"
   },
-  "homepage": "https://github.com/cubing/icons.git#readme"
+  "homepage": "https://github.com/cubing/icons.git#readme",
+  "main": "./www/css/cubing-icons.css"
 }

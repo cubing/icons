@@ -1,0 +1,6 @@
+# Courtesy of https://github.com/shinnn/gulp-gh-pages
+.publish
+
+# These get copied into the www directory, which is included. There's no need
+# for duplicates.
+svgs/
