@@ -95,7 +95,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="#how-to">How to Use</a></li>
+            <li><a href="#how-to-with-npm">How to Use (with npm)</a></li>
+            <li><a href="#how-to-without-npm">How to Use (without npm)</a></li>
             <li><a href="#icons-list">Icons List</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
@@ -113,7 +114,44 @@
             Cubing Icons that are allowed (<a href="https://github.com/cubing/icons/blob/main/LICENSE">see license</a>) for all projects! There should probably be more text here.
           </p>
 
-          <h1 class="text-center" id="how-to">How to Use</h1>
+          <h1 class="text-center" id="how-to-with-npm">How to Use (with npm)</h1>
+          Create the following files:
+          <code>
+              <pre>
+// ************** index.html **************
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;
+        &lt;script src=&quot;./index.jsx&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+// ************** index.jsx **************
+import React from "react";
+import ReactDom from "react-dom";
+
+import "@cubing/icons";
+
+function App() {
+  return &lt;span className="cubing-icon event-333oh"&gt;&lt;/span&gt;;
+}
+
+ReactDom.render(&lt;App /&gt;, document.getElementById("app"));
+</pre>
+          </code>
+
+          Run the following commands:
+          <code>
+              <pre>$ npm init  # if you are not already in a javascript project!
+$ npm install --save-dev parcel  # if you are not already using parcel or another tool (such as webpack)
+$ npm install --save react react-dom @cubing/icons
+$ npx parcel index.html
+# Check it out at http://localhost:1234!</pre>
+          </code>
+
+
+          <h1 class="text-center" id="how-to-without-npm">How to Use (without npm)</h1>
           <ol>
             <li>
               Download the icons <a href="https://github.com/cubing/icons/archive/gh-pages.zip">here</a>.
