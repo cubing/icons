@@ -12,13 +12,14 @@ var child_process = require('child_process');
 var consolidate = require('gulp-consolidate');
 
 var FONT_NAME = 'cubing-icons';
-var SVG_FILES = 'svgs/*/*.svg';
+var SVG_FILES = "svgs/*/*.svg";
+var STATIC_FILES = "static/*/*";
 var TEMPLATE_FILES = 'templates/*.lodash';
 var SRC_FILES = [ SVG_FILES, TEMPLATE_FILES ];
 
 var runTimestamp = Math.round(Date.now()/1000);
 
-const defaultTask = gulp.parallel(copySvgs, css);
+const defaultTask = gulp.parallel(copySvgs, copyStaticFiles, css);
 export default defaultTask;
 
 export function css() {
@@ -66,6 +67,10 @@ export function css() {
     .pipe(gulp.dest('www/fonts/'))
     .pipe(fontCss);
 };
+
+export function copyStaticFiles() {
+  return gulp.src(STATIC_FILES).pipe(gulp.dest("www/"));
+}
 
 export function copySvgs() {
   return gulp.src(SVG_FILES)
