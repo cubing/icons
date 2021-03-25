@@ -19,9 +19,9 @@
     "through2": "^4.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
     "watch": "gulp watch",
+    "dev": "npm run watch",
     "deploy": "gulp deploy",
     "version": "npm run build",
     "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish"
