@@ -1,4 +1,4 @@
-# Cubing Icons and Fonts [![Build Status](https://travis-ci.org/cubing/icons.svg?branch=main)](https://travis-ci.org/cubing/icons)
+# Cubing Icons and Fonts [![Deploy to GitHub Pages](https://github.com/cubing/icons/actions/workflows/deploy.yml/badge.svg)](https://github.com/cubing/icons/actions/workflows/deploy.yml)
 
 ## Demo
 <https://cubing.github.io/icons>
@@ -18,13 +18,3 @@ We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont
 ```
 npm version major|minor|patch -m "Upgrade to %s for reasons"
 ```
-
-### (Optional, this is handled automatically) Deploy to GitHub Pages
-
-```
-npm run deploy
-```
-
-This will deploy to the `gh-pages` branch of whatever remote your `origin` is
-pointing at. TravisCI will automatically run this whenever code is pushed to
-`main`.
