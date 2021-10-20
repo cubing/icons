@@ -5,7 +5,6 @@ var jimp = require('gulp-jimp');
 var through = require('through2');
 var rename = require('gulp-rename');
 var svg2png = require('gulp-svg2png');
-var ghPages = require('gulp-gh-pages');
 var iconfont = require('gulp-iconfont');
 var bufferstreams = require('bufferstreams');
 var child_process = require('child_process');
@@ -79,26 +78,6 @@ export function copySvgs() {
 
 export const watch = gulp.series(defaultTask, function watching() {
   gulp.watch(SRC_FILES, defaultTask);
-});
-
-export const deploy = gulp.series(clean, defaultTask, function deploying(done) {
-  // Inspired by https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
-  if(process.env.TRAVIS !== "true") {
-    return gulp.src('./www/**/*.*')
-      .pipe(ghPages());
-  } else if(process.env.TRAVIS_PULL_REQUEST !== "false") {
-    console.log(`Building PR #${process.env.TRAVIS_PULL_REQUEST} on branch ${process.env.TRAVIS_BRANCH}, not deploying`);
-    done();
-  } else if(process.env.TRAVIS_BRANCH !== "main") {
-    console.log(`Building non-main branch ${process.env.TRAVIS_BRANCH}, not deploying`);
-    done();
-  } else {
-    console.log(`==> Building and deploying <==`);
-    return gulp.src('./www/**/*.*')
-      .pipe(ghPages({
-        remoteUrl: 'git@github.com:cubing/icons.git',
-      }));
-  }
 });
 
 export function clean() {
