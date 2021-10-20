@@ -1,0 +1,14 @@
+name: Check
+on: [push]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install potrace
+        run: |
+          sudo apt-get update
+          sudo apt-get install potrace
+      - run: npm install
+      - run: npm run build
