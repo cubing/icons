@@ -10,7 +10,6 @@
     "del": "^5.1.0",
     "gulp": "^4.0.2",
     "gulp-consolidate": "*",
-    "gulp-gh-pages": "next",
     "gulp-iconfont": "^10.0.3",
     "gulp-jimp": "*",
     "gulp-rename": "^2.0.0",

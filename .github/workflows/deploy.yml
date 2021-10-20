@@ -10,7 +10,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/bootstrap
       - name: Setup git config
-        run: |
+      - run: npm run build
+      - run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-      - run: npm run deploy
+      - run: |
+          git subtree split --prefix www -b gh-pages
+          git push -f origin gh-pages:gh-pages
