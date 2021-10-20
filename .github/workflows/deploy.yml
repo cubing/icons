@@ -9,4 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/bootstrap
+      - name: Setup git config
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
       - run: npm run deploy
