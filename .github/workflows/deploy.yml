@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  deploy:
+  build-pages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,6 +18,32 @@ jobs:
         run: |
           git add -f www
           git commit -m "Build for deploy"
-      - run: |
-          git subtree split --prefix www -b gh-pages
-          git push -f origin gh-pages:gh-pages
+      - name: Build
+        run: |
+          npm ci
+          make build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./www
+          retention-days: 1
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+
+    needs: build-pages
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    # https://github.com/actions/deploy-pages#usage
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
