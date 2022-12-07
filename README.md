@@ -3,7 +3,7 @@
 [![Deploy to GitHub Pages](https://github.com/cubing/icons/actions/workflows/deploy.yml/badge.svg)](https://github.com/cubing/icons/actions/workflows/deploy.yml)
 
 ## Demo
-<https://cubing.github.io/icons>
+<https://icons.cubing.net>
 
 ## Rebuild fonts and cubing-icons.css
 
