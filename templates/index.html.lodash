@@ -155,8 +155,8 @@ $ npx parcel index.html
           <h1 class="text-center" id="how-to-without-npm">How to Use (without npm)</h1>
           <ol>
             <li>
-              Download the icons <a href="https://github.com/cubing/icons/archive/gh-pages.zip">here</a>.
-              Extract the files and place cubing-icons.css into your css directory.
+              Download the icons <a href="https://icons.cubing.net/css/cubing-icons.css" download>here</a>.
+              Place <code>cubing-icons.css</code> into your css directory.
             </li>
             <li>
               Put this CSS file in the <code>&lt;head&gt;</code> tag of your web page:
