@@ -2,7 +2,7 @@
 # https://github.com/lgarron/Makefile-scripts
 
 # Note: the first command becomes the default `make` target.
-NPM_COMMANDS = build watch dev deploy version postversion
+NPM_COMMANDS = build watch dev version postversion
 
 .PHONY: $(NPM_COMMANDS)
 $(NPM_COMMANDS):
