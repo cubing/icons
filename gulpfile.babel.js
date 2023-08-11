@@ -116,12 +116,20 @@ function fontCssPipe() {
 
 function bmp2svg() {
   return through.obj(function(file, enc, next) {
-
     var potraceProcess = child_process.spawn(
       'potrace', ['-o', '-', '-b', 'svg'], {
          stdio: [ 'pipe', 'pipe', 'inherit' ]
        }
     );
+    potraceProcess.on("error", () => {
+      console.error(`
+Could not run \`potrace\`.
+Please ensure that the \`potrace\` binary is available on your \`$PATH\`. For example, install using one of the following:
+
+- apt install potrace (on Linux)
+- brew install potrace (on macOS using Homebrew)
+`)
+    });
 
     potraceProcess.stdin.write(file.contents);
     potraceProcess.stdin.end();
