@@ -2,27 +2,24 @@
   "name": "@cubing/icons",
   "version": "1.0.9",
   "description": "Cubing Icons and Fonts",
+  "main": "./dist/@cubing/icons/cubing-icons.css",
+  "exports": {
+    "css": {
+      "default": "./dist/@cubing/icons/cubing-icons.css"
+    }
+  },
+  "type": "module",
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "@babel/register": "^7.10.5",
-    "bufferstreams": "^3.0.0",
-    "del": "^5.1.0",
-    "gulp": "^4.0.2",
-    "gulp-consolidate": "*",
-    "gulp-iconfont": "^10.0.3",
-    "gulp-jimp": "*",
-    "gulp-rename": "^2.0.0",
-    "gulp-svg2png": "*",
-    "lodash": "*",
-    "through2": "^4.0.2"
+    "@biomejs/biome": "^1.1.2",
+    "fantasticon": "^2.0.0"
   },
   "scripts": {
-    "build": "gulp",
-    "watch": "gulp watch",
-    "dev": "npm run watch",
+    "build": "node script/build.js",
+    "clean": "rm -rf ./dist/",
     "version": "npm run build",
-    "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish"
+    "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish",
+    "lint": "npx @biomejs/biome check ./script",
+    "format": "npx @biomejs/biome format --write ./script"
   },
   "repository": {
     "type": "git",
@@ -34,5 +31,7 @@
     "url": "https://github.com/cubing/icons.git/issues"
   },
   "homepage": "https://github.com/cubing/icons.git#readme",
-  "main": "./www/css/cubing-icons.css"
+  "files": [
+    "dist"
+  ]
 }
