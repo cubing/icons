@@ -6,6 +6,7 @@
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/register": "^7.10.5",
+    "@biomejs/biome": "^1.1.2",
     "bufferstreams": "^3.0.0",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -22,7 +23,9 @@
     "watch": "gulp watch",
     "dev": "npm run watch",
     "version": "npm run build",
-    "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish"
+    "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish",
+    "lint": "npx @biomejs/biome check ./script",
+    "format": "npx @biomejs/biome format --write ./script"
   },
   "repository": {
     "type": "git",
