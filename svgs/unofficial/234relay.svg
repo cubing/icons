@@ -1,14 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
-<rect x="26.5" y="50" fill="#000000" width="170" height="170"/>
-<rect x="26.5" y="280" fill="#000000" width="170" height="170"/>
-<rect x="234.5" y="30" fill="#000000" width="116" height="116"/>
-<rect x="234.5" y="192" fill="#000000" width="116" height="116"/>
-<rect x="234.5" y="354" fill="#000000" width="116" height="116"/>
-<rect x="386.5" y="20" fill="#000000" width="87" height="87"/>
-<rect x="386.5" y="144" fill="#000000" width="87" height="87"/>
-<rect x="386.5" y="268" fill="#000000" width="87" height="87"/>
-<rect x="386.5" y="392" fill="#000000" width="87" height="87"/>
-</svg>
+<svg enable-background="new 0 0 500 500" height="500" viewBox="0 0 500 500" width="500" xmlns="http://www.w3.org/2000/svg"><path d="m26.5 50h170v170h-170z"/><path d="m26.5 280h170v170h-170z"/><path d="m234.5 30h116v116h-116z"/><path d="m234.5 192h116v116h-116z"/><path d="m234.5 354h116v116h-116z"/><path d="m386.5 20h87v87h-87z"/><path d="m386.5 144h87v87h-87z"/><path d="m386.5 268h87v87h-87z"/><path d="m386.5 392h87v87h-87z"/></svg>
