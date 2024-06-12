@@ -9,7 +9,7 @@
     "@biomejs/biome": "^1.1.2",
     "bufferstreams": "^3.0.0",
     "del": "^5.1.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-consolidate": "*",
     "gulp-iconfont": "^10.0.3",
     "gulp-jimp": "*",
