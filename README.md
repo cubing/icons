@@ -5,6 +5,10 @@
 ## Demo
 <https://icons.cubing.net>
 
+## Contributing
+
+See the `(CONTRIBUTING.md)[https://github.com/cubing/icons/blob/main/CONTRIBUTING.md]` document.
+
 ## Rebuild fonts and cubing-icons.css
 
 We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont).
