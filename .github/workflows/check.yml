@@ -1,10 +1,12 @@
-name: Check
-on: pull_request
+on:
+  pull_request:
+  workflow_call:
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/bootstrap
-      - run: npm run build
-      - run: npm run lint
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix flake check
