@@ -1,15 +1,11 @@
-# This Makefile is a wrapper around the scripts from `package.json`.
-# https://github.com/lgarron/Makefile-scripts
+.PHONY: build
+build:
+	nix build .#www
 
-# Note: the first command becomes the default `make` target.
-NPM_COMMANDS = build watch dev version postversion lint format
+.PHONY: check
+check:
+	nix flake check --print-build-logs
 
-.PHONY: $(NPM_COMMANDS)
-$(NPM_COMMANDS):
-	npm run $@
-
-# We write the npm commands to the top of the file above to make shell autocompletion work in more places.
-DYNAMIC_NPM_COMMANDS = $(shell cat package.json | npx jq --raw-output ".scripts | keys_unsorted | join(\" \")")
-.PHONY: update-Makefile
-update-Makefile:
-	sed -i "" "s/^NPM_COMMANDS = .*$$/NPM_COMMANDS = ${DYNAMIC_NPM_COMMANDS}/" Makefile
+.PHONY: fix
+fix:
+	nix fmt
