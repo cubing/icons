@@ -1,6 +1,6 @@
-import { generateFonts } from "fantasticon";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { generateFonts } from "fantasticon";
 
 const OUTPUT_DIR = "dist/@cubing/icons";
 const OUTPUT_ICONS_CSS = join(OUTPUT_DIR, "cubing-icons.css");

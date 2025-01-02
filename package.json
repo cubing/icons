@@ -10,8 +10,8 @@
   },
   "type": "module",
   "devDependencies": {
-    "@biomejs/biome": "^1.1.2",
-    "fantasticon": "^2.0.0"
+    "@biomejs/biome": "^1.9.4",
+    "fantasticon": "^3.0.0"
   },
   "scripts": {
     "build": "node script/build.js",
@@ -19,8 +19,8 @@
     "reset": "npm run clean && rm -rf ./node_modules # TODO: this should be using Makefile dependencies",
     "version": "npm run build",
     "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish",
-    "lint": "npx @biomejs/biome check ./script",
-    "format": "npx @biomejs/biome format --write ./script"
+    "lint": "npx @biomejs/biome check",
+    "format": "npx @biomejs/biome check --write"
   },
   "repository": {
     "type": "git",
