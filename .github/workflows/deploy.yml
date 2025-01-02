@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: DeterminateSystems/nix-installer-action@main
       - uses: DeterminateSystems/magic-nix-cache-action@main
-      - run: nix build .#www --outlink ./www
+      - run: nix build .#www --out-link ./www
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
