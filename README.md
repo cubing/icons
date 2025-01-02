@@ -1,22 +1,36 @@
-# Cubing Icons and Fonts
+# Cubing icons and fonts
 
-[![Deploy to GitHub Pages](https://github.com/cubing/icons/actions/workflows/deploy.yml/badge.svg)](https://github.com/cubing/icons/actions/workflows/deploy.yml)
+## Documentation and demo
 
-## Demo
 <https://icons.cubing.net>
 
-## Rebuild fonts and cubing-icons.css
+## Development
 
-We use the excellent [gulp-iconfont](https://www.npmjs.com/package/gulp-iconfont).
+Most development is simply adding/changing existing SVG files under the [`./src/svg` directory](https://github.com/cubing/icons/tree/main/src/svg). If you haven't dealt with SVG files before, check out [Inkscape](https://inkscape.org/).
 
-- `npm install`
-- Install [potrace](http://potrace.sourceforge.net/).
-- `npm run build` or `npm run watch` - Open `www/index.html` in your web browser.
+If you want to actually build a font or CSS locally, you'll need some more tooling.
+
+## Build the project
+
+This project uses [`bun`](https://bun.sh/) for development. With `bun` installed, you can run:
+
+```shell
+git clone https://github.com/cubing/icons && cd icons
+make
+```
+
+Files are build into the `./dist` dir.
+
+### Develop using `nix`
+
+TODO: adapt `nix` info.
 
 ## Releasing
 
-### Bump version and deploy to npmjs
+### Bump version and deploy to `npmjs.org`
 
-```
-npm version major|minor|patch -m "Upgrade to %s for reasons"
+```shell
+npm version [major|minor|patch] -m "Release description"
+git push --follow-tags
+make publish
 ```

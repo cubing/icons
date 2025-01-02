@@ -29,3 +29,7 @@ clean:
 .PHONY: reset
 reset: clean
 	rm -rf ./node_modules
+
+.PHONY: publish
+publish:
+	npm publish
