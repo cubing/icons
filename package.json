@@ -1,6 +1,6 @@
 {
   "name": "@cubing/icons",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Cubing Icons and Fonts",
   "devDependencies": {
     "@babel/core": "^7.10.5",
