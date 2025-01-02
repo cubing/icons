@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="500"
+   height="500"
+   viewBox="0 0 500 500"
+   fill="none"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="333_mirror_blocks_bld.svg"
+   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25, custom)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.6341325"
+     inkscape:cx="206.58143"
+     inkscape:cy="230.23579"
+     inkscape:window-width="2558"
+     inkscape:window-height="1559"
+     inkscape:window-x="0"
+     inkscape:window-y="39"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <path
+     fill="#000000"
+     d="m 430.334,253.76221 c 4.929,-76.658 73.935,-190.163004 -58.733,-190.163004 -111.138,0 -118.596,96.192004 -118.596,190.163004 0,84.969 4.044,186.586 106.526,190.163 142.872,4.987 76.281,-104.974 70.803,-190.163 z"
+     id="path3" />
+  <path
+     d="M 58.948,57.699182 H 196.46415 V 212.95936 H 58.948 Z"
+     style="clip-rule:evenodd;opacity:1;fill:#000000;fill-rule:evenodd;stroke-width:0.887201;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     id="path1-5" />
+  <path
+     d="M 58.948,252.8834 H 196.46415 V 356.68592 H 58.948 Z"
+     style="clip-rule:evenodd;opacity:1;fill:#000000;fill-rule:evenodd;stroke-width:0.887201;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     id="path4-3" />
+  <path
+     d="m 58.948,396.60996 h 137.51615 v 52.34486 H 58.948 Z"
+     style="clip-rule:evenodd;display:inline;opacity:1;fill:#000000;fill-rule:evenodd;stroke-width:0.887201;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     id="path7-5" />
+</svg>
