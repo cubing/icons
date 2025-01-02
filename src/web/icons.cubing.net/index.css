@@ -1,0 +1,159 @@
+/* Adapted from https://github.com/lgarron/minimal-html-style */
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, Roboto, Ubuntu, Tahoma, sans-serif;
+  font-size: 1rem;
+  padding: 0em 2em;
+  background: #4285f411;
+  display: grid;
+  justify-content: center;
+}
+
+body {
+  margin: auto;
+  width: 100vw;
+}
+
+navigation-bar {
+  width: 100%;
+  padding: 0 0.5rem;
+  display: grid;
+  align-items: baseline;
+  grid-template-columns: repeat(5, auto) 1fr auto;
+  justify-content: start;
+  background-color: #4285f422;
+  border-bottom: 1px solid color-mix(in oklab, currentColor 20%, transparent);
+}
+
+navigation-bar a {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+navigation-bar a:not(:hover) {
+  text-decoration: none;
+}
+
+navigation-bar a:first-child {
+  font-size: 1.5em;
+}
+
+@media (max-width: 40rem) {
+  navigation-bar {
+    grid-template-columns: 1fr;
+    padding: 0.5rem 2rem;
+  }
+  navigation-bar a {
+    padding: 0.1rem;
+  }
+}
+
+.content {
+  width: calc(100vw - 4em);
+  max-width: 45em;
+  margin: auto;
+  padding-top: 1.5em;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.sample {
+  background: #4285f422;
+  padding: 1em;
+  border: 1px solid black;
+  font-size: 0.8em;
+}
+
+.sample .dim {
+  opacity: 0.4;
+}
+
+.sample.output {
+  padding: 0em;
+  font-size: 1.5em;
+}
+
+/* Icons lists */
+
+.icons-list {
+  width: 100%;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, var(--icon-scale));
+  grid-auto-rows: 1fr;
+
+  --icon-scale: 6em;
+}
+
+.icons-list li {
+  border: 1px solid currentColor;
+  padding: 0;
+}
+
+.icons-list li a {
+  height: 100%;
+  background-color: color-mix(in oklab, currentColor 10%, transparent);
+  display: inline-block;
+  padding: 0.5em;
+  text-align: center;
+  font-size: 0.7em;
+  display: grid;
+  grid-template-columns: auto;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.icons-list li:nth-child(5n + 1) a {
+  color: light-dark(#222222, #dddddd);
+}
+
+.icons-list li:nth-child(5n + 2) a {
+  color: color-mix(in oklab, orange 70%, currentColor);
+}
+
+.icons-list li:nth-child(5n + 3) a {
+  color: color-mix(in oklab, green 70%, currentColor);
+}
+
+.icons-list li:nth-child(5n + 4) a {
+  color: color-mix(in oklab, red 70%, currentColor);
+}
+
+.icons-list li:nth-child(5n + 5) a {
+  color: color-mix(in oklab, blue 70%, currentColor);
+}
+
+.icons-list li:is(:target, :hover) {
+  border-width: 4px;
+  margin: -3px;
+  border-radius: 3px;
+}
+
+.icons-list li:target a {
+  /* color: light-dark(blue, rebeccapurple); */
+  /* background-color: color-mix(in oklab, purple 60%, transparent); */
+  background-color: color-mix(in oklab, currentColor 30%, transparent);
+}
+
+.icons-list li a:hover {
+  text-shadow: 0 0 2em color-mix(in oklab, currentColor 50%, transparent);
+}
+
+.icons-list li a:hover code {
+  text-decoration: underline;
+}
+
+.icons-list .cubing-icon {
+  font-size: var(--icon-scale);
+  text-decoration: none;
+}

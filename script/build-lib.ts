@@ -2,14 +2,14 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { FontAssetType, OtherAssetType, generateFonts } from "fantasticon";
 
-const OUTPUT_DIR = "dist/@cubing/icons";
-const OUTPUT_ICONS_CSS = join(OUTPUT_DIR, "cubing-icons.css");
+const LIB_OUTPUT_DIR = "dist/lib/@cubing/icons";
+const OUTPUT_ICONS_CSS = join(LIB_OUTPUT_DIR, "cubing-icons.css");
 
-await mkdir(OUTPUT_DIR, { recursive: true });
+await mkdir(LIB_OUTPUT_DIR, { recursive: true });
 
 await generateFonts({
   inputDir: "src/svg/",
-  outputDir: OUTPUT_DIR,
+  outputDir: LIB_OUTPUT_DIR,
   fontTypes: [FontAssetType.TTF, FontAssetType.WOFF, FontAssetType.WOFF2],
   assetTypes: [OtherAssetType.TS, OtherAssetType.CSS],
   selector: ".cubing-icon",
@@ -21,5 +21,10 @@ await generateFonts({
 const iconsCSSContents = await readFile(OUTPUT_ICONS_CSS, "utf-8");
 await writeFile(
   OUTPUT_ICONS_CSS,
-  iconsCSSContents.replaceAll(".cubing-icon.icon-", ".cubing-icon."),
+  iconsCSSContents
+    .replaceAll(".cubing-icon.icon-", ".cubing-icon.")
+    .replaceAll(
+      ".cubing-icon:before {",
+      ".cubing-icon:before {\n  vertical-align: -15%;",
+    ),
 );

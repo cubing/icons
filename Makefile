@@ -1,11 +1,18 @@
 .PHONY: build
-build: setup
-	bun run script/build.ts
+build: build-lib build-site
+
+.PHONY: build-lib
+build-lib: setup
+	bun run script/build-lib.ts
+
+.PHONY: build-site
+build-site: setup
+	bun run script/build-site.ts
 
 .PHONY: setup
 setup:
 	# Makes sure dependencies match the current checkout. Very fast no-op.
-	bun install
+	bun install --no-save
 
 .PHONY: lint
 lint: setup
