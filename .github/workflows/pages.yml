@@ -1,31 +1,35 @@
-name: Deploy to GitHub Pages
+name: js.cubing.net
+
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   build-pages:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
     steps:
       - uses: actions/checkout@v4
-      - run: npm install
-      - run: npm run build
-      - name: Setup git config
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-      - name: Commit
-        run: |
-          git add -f www
-          git commit -m "Build for deploy"
-      - name: Build
-        run: |
-          npm ci
-          make build
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Use `node` v${{ matrix.node-version }}
+        uses: actions/setup-node@v4
         with:
-          path: ./www
+          node-version: ${{ matrix.node-version }}
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      - run: make build-site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/web/icons.cubing.net/
           retention-days: 1
 
   deploy-pages:
@@ -46,4 +50,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
