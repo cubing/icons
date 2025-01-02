@@ -92,12 +92,13 @@ mustExist(
   document.querySelector<HTMLLinkElement>("head #cubing-icons-css-link"),
 ).href = "./@cubing/icons/cubing-icons.css";
 
-await writeFile(join(SITE_OUTPUT_DIR, HTML_INDEX_FILENAME), dom.serialize());
-await cp(
-  join(SITE_SRC_DIR, CSS_INDEX_FILENAME),
-  join(SITE_OUTPUT_DIR, CSS_INDEX_FILENAME),
-);
+// Copy all files.
+await cp(join(SITE_SRC_DIR), join(SITE_OUTPUT_DIR), { recursive: true });
 
+// Overwrite HTML file.
+await writeFile(join(SITE_OUTPUT_DIR, HTML_INDEX_FILENAME), dom.serialize());
+
+// Vendor lib.
 // TODO: semantics don't match `cp` binary???
 await cp(LIB_OUTPUT_DIR, SITE_OUTPUT_DIR, {
   recursive: true,
