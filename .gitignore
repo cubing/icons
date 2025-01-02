@@ -1,6 +1,10 @@
 /result
 /www
 
+# This really ought to live in `.git/info/exclude`, but `biome` doesn't understand that file:
+# https://github.com/biomejs/biome/issues/4822
+/.direnv
+
 node_modules/
 
 # Courtesy of https://github.com/shinnn/gulp-gh-pages
