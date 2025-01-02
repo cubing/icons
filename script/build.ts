@@ -1,6 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
-import { generateFonts } from "fantasticon";
+import { FontAssetType, OtherAssetType, generateFonts } from "fantasticon";
 
 const OUTPUT_DIR = "dist/@cubing/icons";
 const OUTPUT_ICONS_CSS = join(OUTPUT_DIR, "cubing-icons.css");
@@ -8,10 +8,10 @@ const OUTPUT_ICONS_CSS = join(OUTPUT_DIR, "cubing-icons.css");
 await mkdir(OUTPUT_DIR, { recursive: true });
 
 await generateFonts({
-  inputDir: "src/svg",
+  inputDir: "src/svg/",
   outputDir: OUTPUT_DIR,
-  fontTypes: ["ttf", "woff", "woff2"],
-  assetTypes: ["ts", "css"],
+  fontTypes: [FontAssetType.TTF, FontAssetType.WOFF, FontAssetType.WOFF2],
+  assetTypes: [OtherAssetType.TS, OtherAssetType.CSS],
   selector: ".cubing-icon",
   name: "cubing-icons",
 });
