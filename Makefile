@@ -2,7 +2,7 @@
 # https://github.com/lgarron/Makefile-scripts
 
 # Note: the first command becomes the default `make` target.
-NPM_COMMANDS = build clean version postversion lint format
+NPM_COMMANDS = build clean reset version postversion lint format
 
 .PHONY: $(NPM_COMMANDS)
 $(NPM_COMMANDS):

@@ -16,6 +16,7 @@
   "scripts": {
     "build": "node script/build.js",
     "clean": "rm -rf ./dist/",
+    "reset": "npm run clean && rm -rf ./node_modules # TODO: this should be using Makefile dependencies",
     "version": "npm run build",
     "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish",
     "lint": "npx @biomejs/biome check ./script",
@@ -31,7 +32,5 @@
     "url": "https://github.com/cubing/icons.git/issues"
   },
   "homepage": "https://github.com/cubing/icons.git#readme",
-  "files": [
-    "dist"
-  ]
+  "files": ["dist"]
 }
