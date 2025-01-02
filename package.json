@@ -21,7 +21,8 @@
     "build": "gulp",
     "watch": "gulp watch",
     "dev": "npm run watch",
-    "version": "npm run build"
+    "version": "npm run build",
+    "postversion": "git push --follow-tags git@github.com:cubing/icons.git HEAD:main && npm publish"
   },
   "repository": {
     "type": "git",
