@@ -13,9 +13,9 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = import inputs.systems;
       imports = [
-        ./nix/formatting.nix
         ./nix/dev-shell.nix
-        ./nix/www.nix
+        ./nix/lint.nix
+        ./nix/web.nix
       ];
     };
 }

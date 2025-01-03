@@ -1,0 +1,42 @@
+name: icons.cubing.net
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - run: nix build .#web --out-link ./dist/web/icons.cubing.net
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/web/icons.cubing.net
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+
+    needs: build-pages
+
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    # https://github.com/actions/deploy-pages#usage
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

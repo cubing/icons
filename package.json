@@ -10,7 +10,9 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/bun": "^1.1.14",
-    "fantasticon": "^3.0.0"
+    "@types/jsdom": "^21.1.7",
+    "fantasticon": "^3.0.0",
+    "jsdom": "^25.0.1"
   },
   "exports": {
     ".": {

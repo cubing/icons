@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8">
+  <title>Cubing icons</title>
+  <meta property="og:image" content="https://icons.cubing.net/img/og-image.png" />
+  <!-- From: https://github.com/lgarron/minimal-html-style (v1.0.0) -->
+  <link rel="stylesheet" href="./index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=0.75">
+  <link rel="stylesheet" href="../../../dist/lib/@cubing/icons/cubing-icons.css" id="cubing-icons-css-link">
+</head>
+
+<body>
+
+  <navigation-bar>
+    <a href="https://icons.cubing.net/">Cubing&nbsp;icons</a>
+    <a href="#cdn-usage">Basic&nbsp;use</a>
+    <a href="#npm-usage">Use&nbsp;from&nbsp;<code>npm</code></a>
+    <a href="#svg">SVG</a>
+    <a href="#catalog">Icon&nbsp;catalog</a>
+    <div></div>
+    <a href="https://github.com/cubing/icons">On&nbsp;GitHub</a>
+  </navigation-bar>
+
+  <div class="content">
+    <h1><span class="cubing-icon event-clock"></span> It's time for cubing icons!</h1>
+
+    <div id="all-icons">
+      <a href="#event-333"><span class="cubing-icon event-333"></span></a><a href="#event-222"><span
+          class="cubing-icon event-222"></span></a><a href="#event-444"><span class="cubing-icon event-333"></span></a>
+    </div>
+    <div class="source-notice"
+      style="color: yellow; background: color-mix(in oklab, yellow 25%, transparent); padding: 2em 1em;">
+      Note: Only three icons are included in the source HTML in the repo. All icons are included in the compiled HTML.
+    </div>
+    <p>
+      Cubing icons can be used for any cubing project under a <a
+        href="https://github.com/cubing/icons/blob/main/LICENSE">free license</a>. Use them for your web site or web app
+      today!
+    </p>
+
+    <section id="cdn-usage">
+      <hr>
+      <h2>Use cubing icons in your web project</h2>
+
+      <p>
+        The simplest way to use cubing icons in your project is to include one <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link">CSS <code>&lt;link&gt;</code>
+          element</a>
+        on
+        your page and then use <code>class</code> on <a
+          href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span"><code>&lt;span&gt;</code> elements</a>
+        to
+        specify icons.
+      </p>
+
+      <p>
+        Here's an example:
+      </p>
+
+      <div class="sample">
+        <code>
+      <span class="dim">&lt;!-- The following line is needed only once per page. --&gt;<br></span>
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.cubing.net/v0/css/@cubing/icons&quot;&gt;
+      <br>
+      <br>
+      &lt;ul&gt;<br>
+    &nbsp;&nbsp;&lt;li&gt;&lt;span class="<b>cubing-icon event-333</b>"&gt;&lt;/span&gt; 3×3×3&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;li&gt;&lt;span class="<b>cubing-icon event-clock</b>"&gt;&lt;/span&gt; Clock&lt;/li&gt;<br>
+    &nbsp;&nbsp;&lt;li&gt;&lt;span class="<b>cubing-icon unofficial-fto</b>"&gt;&lt;/span&gt; FTO&lt;/li&gt;<br>
+      &lt;/ul&gt;
+    </code>
+      </div>
+
+      <p>
+        This is how it looks:
+      </p>
+
+      <div class="sample output">
+        <ul>
+          <li><span class="cubing-icon event-333"></span> 3×3×3</li>
+          <li><span class="cubing-icon event-clock"></span> Clock</li>
+          <li><span class="cubing-icon unofficial-fto"></span> FTO</li>
+        </ul>
+      </div>
+    </section>
+
+    <p>
+      For a list of available icons, consult the <a href="#catalog">catalog</a>.
+    </p>
+
+    <section id="npm-usage">
+      <hr>
+      <h2>Using the <code>npm</code> package</h2>
+
+      <p>
+        Cubing icons are published as <a
+          href="https://www.npmjs.com/package/@cubing/icons"><code>@cubing/icons</code></a>
+        on <code>npm</code>. If you are more comfortable using <code>npm</code> for
+        your project dependencies, you should be able to install this package and use it with a
+        bundler of your choice in one of these ways:
+      </p>
+
+      <p>
+      <fieldset class="sample">
+        <legend><code>page.html</code></legend>
+        <code>&lt;link rel="stylesheet" href="@cubing/icons/css"&gt;</code>
+      </fieldset>
+      </p>
+      <p>
+      <fieldset class="sample">
+        <legend><code>style.css</code></legend>
+        <code>@import "@cubing/icons/css";</code>
+      </fieldset>
+      </p>
+      <p>
+      <fieldset class="sample">
+        <legend><code>app.ts</code></legend>
+        <code>
+        import { CubingIcons } from "@cubing/icons/ts";<br>
+        <br>
+        // Work with a list of available icons<br>
+        console.log(Object.values(CubingIcons));
+      </code>
+      </fieldset>
+      </p>
+    </section>
+
+    <section id="svg">
+      <hr>
+      <h2>SVG files</h2>
+      <p>
+        You can find <code>.svg</code> files of the icons by looking in <a
+          href="https://github.com/cubing/icons/tree/lgarron/ungulp/src/svg">the <code>src/svg</code> folder</a> of the
+        project repository.
+      </p>
+    </section>
+
+    <section id="catalog">
+      <hr>
+      <h2>Icon catalog</h2>
+
+      <p>
+        Icons are listed here with their CSS <code>class</code> names.
+      </p>
+
+      <div class="source-notice"
+        style="color: yellow; background: color-mix(in oklab, yellow 25%, transparent); padding: 2em 1em;">
+        Note: Only three icons from each group are included in the source HTML in the repo. All icons are included in
+        the compiled HTML.
+      </div>
+
+      <section id="wca-events" class="group-event">
+        <h3>WCA events (current and former)</h3>
+        <ul class="icons-list">
+          <li id="event-222">
+            <a href="#event-222">
+              <span class="cubing-icon event-222"></span>
+              <code>cubing-icon event-222</code>
+            </a>
+          </li>
+          <li id="event-333">
+            <a href="#event-333">
+              <span class="cubing-icon event-333"></span>
+              <code>cubing-icon event-333</code>
+            </a>
+          </li>
+          <li id="event-333">
+            <a href="#event-333">
+              <span class="cubing-icon event-333bf"></span>
+              <code>cubing-icon event-333bf</code>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section id="unofficial-events" class="group-unofficial">
+        <h3>Unofficial events</h3>
+        <ul class="icons-list">
+          <li id="unofficial-222bf">
+            <a href="#unofficial-222bf">
+              <span class="cubing-icon unofficial-222bf"></span>
+              <code>cubing-icon unofficial-222bf</code>
+            </a>
+          </li>
+          <li id="unofficial-234567relay">
+            <a href="#unofficial-234567relay">
+              <span class="cubing-icon unofficial-234567relay"></span>
+              <code>cubing-icon unofficial-234567relay</code>
+            </a>
+          </li>
+          <li id="unofficial-kilominx">
+            <a href="#unofficial-kilominx">
+              <span class="cubing-icon unofficial-kilominx"></span>
+              <code>cubing-icon unofficial-kilominx</code>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+
+      <section id="penalties" class="group-penalty">
+        <h3>Penalties</h3>
+        <ul class="icons-list">
+          <li id="penalty-10e3">
+            <a href="#penalty-10e3">
+              <span class="cubing-icon penalty-10e3"></span>
+              <code>cubing-icon penalty-10e3</code>
+            </a>
+          </li>
+          <li id="penalty-A3d1">
+            <a href="#penalty-A3d1">
+              <span class="cubing-icon penalty-A3d1"></span>
+              <code>cubing-icon penalty-A3d1</code>
+            </a>
+          </li>
+          <li id="penalty-A4b">
+            <a href="#penalty-A4b">
+              <span class="cubing-icon penalty-A4b"></span>
+              <code>cubing-icon penalty-A4b</code>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </section>
+  </div>
+
+</body>
+
+</html>
