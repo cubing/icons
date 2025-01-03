@@ -25,6 +25,7 @@
       "default": "./ts/index.ts"
     }
   },
+  "scripts": { "prepublishOnly": "make prepublishOnly" },
   "bugs": {
     "url": "https://github.com/cubing/icons.git/issues"
   },
