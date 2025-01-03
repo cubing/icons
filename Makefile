@@ -4,15 +4,15 @@ bun.lockb: package-lock.json
 	bun pm migrate --force
 
 .PHONY: build
-build: build-lib build-site
+build: build-lib build-web
 
 .PHONY: build-lib
 build-lib: setup
 	bun run script/build-lib.ts
 
-.PHONY: build-site
-build-site: setup
-	bun run script/build-site.ts
+.PHONY: build-web
+build-web: setup
+	bun run script/build-web.ts
 
 .PHONY: setup
 setup: bun.lockb
@@ -23,11 +23,11 @@ endif
 
 .PHONY: lint
 lint: setup
-	npx @biomejs/biome check
+	bun x @biomejs/biome check
 
 .PHONY: format
 format: setup
-	npx @biomejs/biome check --write"
+	bun x @biomejs/biome check --write
 
 .PHONY: clean
 clean:

@@ -5,7 +5,7 @@
     {
       devShells.default = pkgs.mkShell {
         inputsFrom = [
-          self'.packages.www
+          self'.packages.web
         ];
       };
     };

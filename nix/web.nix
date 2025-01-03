@@ -13,8 +13,8 @@
       };
     in
     {
-      packages.www = pkgs.stdenvNoCC.mkDerivation {
-        name = "www";
+      packages.web = pkgs.stdenvNoCC.mkDerivation {
+        name = "web";
         inherit src;
 
         nativeBuildInputs = [
@@ -34,6 +34,6 @@
         '';
       };
 
-      checks.www = self'.packages.www;
+      checks.web = self'.packages.web;
     };
 }
