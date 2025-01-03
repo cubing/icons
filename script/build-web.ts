@@ -10,7 +10,6 @@ const { CubingIcons } = await import(
 const SITE_OUTPUT_DIR = "./dist/web/icons.cubing.net";
 const SITE_SRC_DIR = "./src/web/icons.cubing.net";
 const HTML_INDEX_FILENAME = "index.html";
-const CSS_INDEX_FILENAME = "index.css";
 
 const LIB_OUTPUT_DIR = "./dist/lib";
 
