@@ -96,6 +96,22 @@ h1 {
   transition: opacity 0.5s;
 }
 
+a.section-header-link {
+  color: currentColor;
+}
+
+a.section-header-link:not(:hover) {
+  text-decoration: none;
+}
+
+a.section-header-link:hover::before {
+  content: "🔗";
+  width: 1.25em;
+  display: inline-block;
+  margin-left: -1.25em;
+  line-height: 1em;
+}
+
 /* Icons lists */
 
 .icons-list {
