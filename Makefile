@@ -1,7 +1,7 @@
 # Yes, this is a bit funky. See "Upgrading/changing dependencies" in README.md
 # for details.
-bun.lockb: package-lock.json
-	bun pm migrate --force
+bun.lock: package-lock.json
+	bun pm migrate --save-text-lockfile --force
 
 .PHONY: build
 build: build-lib build-web
@@ -15,7 +15,7 @@ build-web: setup
 	bun run script/build-web.ts
 
 .PHONY: setup
-setup: bun.lockb
+setup: bun.lock
 ifndef NIX_BUILD_TOP
 	# Makes sure dependencies match the current checkout. Very fast no-op.
 	bun install --no-save
