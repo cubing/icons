@@ -6,3 +6,4 @@
 # of truth for our dependencies.
 # See the `bun.lockb` target in `Makefile` for more details.
 /bun.lockb
+/bun.lock
