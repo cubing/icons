@@ -1,6 +1,6 @@
 {
   "name": "@cubing/icons",
-  "version": "1.0.9",
+  "version": "2.1.0-pre.1",
   "author": "",
   "repository": {
     "type": "git",
@@ -25,7 +25,9 @@
       "default": "./ts/index.ts"
     }
   },
-  "scripts": { "prepublishOnly": "make prepublishOnly" },
+  "scripts": {
+    "prepublishOnly": "make prepublishOnly"
+  },
   "bugs": {
     "url": "https://github.com/cubing/icons.git/issues"
   },
