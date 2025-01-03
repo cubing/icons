@@ -1,3 +1,4 @@
+import assert from "node:assert";
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { JSDOM } from "jsdom";
@@ -64,6 +65,7 @@ for (const className of Object.values(CubingIcons).sort()) {
 }
 
 const allIconsElem = mustExist(document.querySelector("#all-icons"));
+allIconsElem.textContent = "";
 for (const className of classNamesOrdered) {
   const a = allIconsElem.appendChild(document.createElement("a"));
   a.href = `#${className}`;
@@ -72,7 +74,11 @@ for (const className of classNamesOrdered) {
   span.classList.add(className);
 }
 
-mustExist(document.querySelector("#source-notice")).remove();
+const notices = document.querySelectorAll(".source-notice");
+assert.equal(notices.length, 2);
+for (const notice of notices) {
+  notice.remove();
+}
 
 for (const prefix of ["event", "unofficial", "penalty"]) {
   const [elem, ...extra] = document.getElementsByClassName(`group-${prefix}`);
