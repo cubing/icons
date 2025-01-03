@@ -118,3 +118,5 @@ await writeFile(join(SITE_OUTPUT_DIR, HTML_INDEX_FILENAME), dom.serialize());
 await cp(LIB_OUTPUT_DIR, SITE_OUTPUT_DIR, {
   recursive: true,
 });
+
+console.log(`The web site has been built at: ${SITE_OUTPUT_DIR}`);

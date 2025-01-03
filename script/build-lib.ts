@@ -28,3 +28,5 @@ await writeFile(
       ".cubing-icon:before {\n  vertical-align: -15%;",
     ),
 );
+
+console.log(`The library has been built at: ${LIB_OUTPUT_DIR}`);
