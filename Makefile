@@ -1,13 +1,9 @@
 .PHONY: build
-build: build-lib build-site
+build: build-lib
 
 .PHONY: build-lib
 build-lib: setup
 	bun run script/build-lib.ts
-
-.PHONY: build-site
-build-site: setup
-	bun run script/build-site.ts
 
 .PHONY: setup
 setup:
