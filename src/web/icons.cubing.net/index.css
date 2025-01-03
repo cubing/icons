@@ -10,15 +10,11 @@
 html {
   font-family: -apple-system, Roboto, Ubuntu, Tahoma, sans-serif;
   font-size: 1rem;
-  padding: 0em 2em;
   background: #4285f411;
-  display: grid;
-  justify-content: center;
 }
 
 body {
-  margin: auto;
-  width: 100vw;
+  margin: 0;
 }
 
 navigation-bar {
@@ -71,6 +67,7 @@ h1 {
   padding: 1em;
   border: 1px solid black;
   font-size: 0.8em;
+  overflow-wrap: anywhere;
 }
 
 .sample .dim {
@@ -89,12 +86,12 @@ h1 {
 }
 
 #all-icons a {
-  color: currentColor;
   text-decoration: none;
+  color: currentColor;
 }
 
-#all-icons a:hover {
-  text-shadow: 0 0 0.5em color-mix(in oklab, currentColor 100%, transparent);
+#all-icons a:not(:hover) {
+  opacity: 25%;
 }
 
 /* Icons lists */
@@ -158,10 +155,6 @@ h1 {
   /* color: light-dark(blue, rebeccapurple); */
   /* background-color: color-mix(in oklab, purple 60%, transparent); */
   background-color: color-mix(in oklab, currentColor 30%, transparent);
-}
-
-.icons-list li a:hover {
-  text-shadow: 0 0 2em color-mix(in oklab, currentColor 50%, transparent);
 }
 
 .icons-list li a:hover code {
