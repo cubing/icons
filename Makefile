@@ -1,3 +1,7 @@
+#<<< TODO: explain >>>
+bun.lockb: package-lock.json
+	bun pm migrate --force
+
 .PHONY: build
 build: build-lib build-site
 
@@ -10,9 +14,11 @@ build-site: setup
 	bun run script/build-site.ts
 
 .PHONY: setup
-setup:
+setup: bun.lockb
+ifndef NIX_BUILD_TOP
 	# Makes sure dependencies match the current checkout. Very fast no-op.
-	bun install --no-save
+	bun install --no-save --verbose
+endif
 
 .PHONY: lint
 lint: setup
