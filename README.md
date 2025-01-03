@@ -15,18 +15,19 @@ If you want to actually build a font or CSS locally, you'll need some more tooli
 
 ### Build the project
 
-You'll need [`bun`](https://bun.sh) to install development dependencies and build the project.
-
-If you don't have `bun` installed, we provide a [`nix`](https://nixos.org/)
-shell you can activate with `nix develop`.
+You'll need [`bun`](https://bun.sh) to install development dependencies and
+build the project. Check out and build the project as follows:
 
 ```shell
 git clone https://github.com/cubing/icons && cd icons
-nix develop  # Optional. See above.
 make
 ```
 
 Files are build into the `./dist` dir.
+
+### Using `nix` for development (optional)
+
+We provide a [`nix`](https://nixos.org/) shell that you can activate with: `nix develop`
 
 ### Upgrading/changing dependencies
 
