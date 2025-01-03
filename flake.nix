@@ -3,9 +3,16 @@
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
+    nix-github-actions = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nix-github-actions";
+    };
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     systems.url = "github:nix-systems/default";
-    treefmt-nix.url = "github:numtide/treefmt-nix";
+    treefmt-nix = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:numtide/treefmt-nix";
+    };
   };
 
   outputs =
@@ -16,6 +23,7 @@
         ./nix/dev-shell.nix
         ./nix/lint.nix
         ./nix/web.nix
+        ./nix/ci.nix
       ];
     };
 }
