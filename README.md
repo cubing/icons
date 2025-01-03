@@ -15,7 +15,7 @@ If you want to actually build a font or CSS locally, you'll need some more tooli
 
 ### Build the project
 
-You'll [`bun`](https://bun.sh) to install development dependencies.
+You'll need [`bun`](https://bun.sh) to install development dependencies and build the project.
 
 If you don't have `bun` installed, we provide a [`nix`](https://nixos.org/)
 shell you can activate with `nix develop`.
