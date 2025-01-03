@@ -10,7 +10,7 @@ await mkdir(LIB_OUTPUT_DIR, { recursive: true });
 await generateFonts({
   inputDir: "src/svg/",
   outputDir: LIB_OUTPUT_DIR,
-  fontTypes: [FontAssetType.TTF, FontAssetType.WOFF, FontAssetType.WOFF2],
+  fontTypes: [FontAssetType.WOFF2],
   assetTypes: [OtherAssetType.TS, OtherAssetType.CSS],
   selector: ".cubing-icon",
   name: "cubing-icons",
