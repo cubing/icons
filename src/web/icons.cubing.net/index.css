@@ -88,10 +88,12 @@ h1 {
 #all-icons a {
   text-decoration: none;
   color: currentColor;
+  opacity: 0s;
 }
 
 #all-icons a:not(:hover) {
   opacity: 25%;
+  transition: opacity 0.5s;
 }
 
 /* Icons lists */
