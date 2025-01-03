@@ -82,6 +82,21 @@ h1 {
   font-size: 1.5em;
 }
 
+#all-icons {
+  font-size: 1.75em;
+  overflow-wrap: anywhere;
+  letter-spacing: 0.25em;
+}
+
+#all-icons a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+#all-icons a:hover {
+  text-shadow: 0 0 0.5em color-mix(in oklab, currentColor 100%, transparent);
+}
+
 /* Icons lists */
 
 .icons-list {

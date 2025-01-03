@@ -55,12 +55,25 @@ const wcaEventOrdering = [
 ];
 const classNamesOrdered = wcaEventOrdering.map((eventID) => `event-${eventID}`);
 for (const className of Object.values(CubingIcons).sort()) {
+  if (!className.match(/[a-zA-Z0-9\-]+/)) {
+    throw new Error("Unexpected class name.");
+  }
   if (!classNamesOrdered.includes(className)) {
     classNamesOrdered.push(className);
   }
 }
 
+const allIconsElem = mustExist(document.querySelector("#all-icons"));
+for (const className of classNamesOrdered) {
+  const a = allIconsElem.appendChild(document.createElement("a"));
+  a.href = `#${className}`;
+  const span = a.appendChild(document.createElement("span"));
+  span.classList.add("cubing-icon");
+  span.classList.add(className);
+}
+
 mustExist(document.querySelector("#source-notice")).remove();
+
 for (const prefix of ["event", "unofficial", "penalty"]) {
   const [elem, ...extra] = document.getElementsByClassName(`group-${prefix}`);
   if (!elem || extra.length > 0) {
@@ -71,9 +84,6 @@ for (const prefix of ["event", "unofficial", "penalty"]) {
 
   for (const className of classNamesOrdered) {
     if (className.startsWith(`${prefix}-`)) {
-      if (!className.match(/[a-zA-Z0-9\-]+/)) {
-        throw new Error("Unexpected class name.");
-      }
       console.log(className);
       const li = iconsList.appendChild(document.createElement("li"));
       li.id = className;
