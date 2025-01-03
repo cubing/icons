@@ -6,11 +6,5 @@
   "formatter": {
     "indentStyle": "space",
     "indentWidth": 2
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true
-    }
   }
 }
