@@ -23,16 +23,11 @@ git clone https://github.com/cubing/icons && cd icons
 make
 ```
 
-If you don't have `bun` installed, we provide a [`nix`](https://nixos.org/)
-shell you can activate with `nix develop`:
-
-```shell
-git clone https://github.com/cubing/icons && cd icons
-nix develop
-make
-```
-
 Files are build into the `./dist` dir.
+
+### Using `nix` for development (optional)
+
+We provide a [`nix`](https://nixos.org/) shell that you can activate with: `nix develop`
 
 ### Upgrading/changing dependencies
 
