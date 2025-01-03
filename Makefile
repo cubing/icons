@@ -4,11 +4,15 @@ bun.lockb: package-lock.json
 	bun pm migrate --force
 
 .PHONY: build
-build: build-lib
+build: build-lib build-site
 
 .PHONY: build-lib
 build-lib: setup
 	bun run script/build-lib.ts
+
+.PHONY: build-site
+build-site: setup
+	bun run script/build-site.ts
 
 .PHONY: setup
 setup: bun.lockb

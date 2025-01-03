@@ -30,9 +30,7 @@
         '';
 
         installPhase = ''
-          # TODO: https://github.com/cubing/icons/pull/138
-          touch $out
-          # mv ./dist/web/icons.cubing.net $out
+          mv ./dist/web/icons.cubing.net $out
         '';
       };
 
