@@ -1,11 +1,9 @@
+/dist
+/node_modules
 /result
-/www
 
-# This really ought to live in `.git/info/exclude`, but `biome` doesn't understand that file:
-# https://github.com/biomejs/biome/issues/4822
-/.direnv
-
-node_modules/
-
-# Courtesy of https://github.com/shinnn/gulp-gh-pages
-.publish
+# This is a `bun` project, but we still use `package-lock.json` as the source
+# of truth for our dependencies.
+# See the `bun.lockb` target in `Makefile` for more details.
+/bun.lockb
+/bun.lock

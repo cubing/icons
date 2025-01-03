@@ -1,37 +1,48 @@
-# Cubing Icons and Fonts
+# Cubing icons and fonts
 
-[![Deploy to GitHub Pages](https://github.com/cubing/icons/actions/workflows/deploy.yml/badge.svg)](https://github.com/cubing/icons/actions/workflows/deploy.yml)
-
-## Demo
+## Documentation and demo
 
 <https://icons.cubing.net>
 
 ## Development
 
-Most development is simply adding/changing existing SVG files. If you haven't dealt
-with SVG files before, check out [Inkscape](https://inkscape.org/).
+Most development is simply adding/changing existing SVG files under the
+[`./src/svg` directory](https://github.com/cubing/icons/tree/main/src/svg). If
+you haven't dealt with SVG files before, check out
+[Inkscape](https://inkscape.org/).
 
 If you want to actually build a font or CSS locally, you'll need some more tooling.
-The easiest way to get those tools is with [nix](https://nixos.org/). You'll
-need the experimental [Flakes](https://wiki.nixos.org/wiki/Flakes) feature
-enabled.
 
-### Some useful `nix` commands
+### Build the project
 
-- `nix flake check` - This is what happens in CI: build the website, check formatting, etc.
-- `nix build .#www` - Build the website. When this finishes, open `result/index.html` in your web browser.
+You'll need [`bun`](https://bun.sh) to install development dependencies and build the project.
 
-### In a dev shell
+If you don't have `bun` installed, we provide a [`nix`](https://nixos.org/)
+shell you can activate with `nix develop`.
 
-You can enter a dev shell with `nix develop`. This will open a subshell with
-all dependencies installed.
-
-- `npm run build` or `npm run watch` - When this finishes, open `www/index.html` in your web browser.
-
-## Releasing
-
-### Bump version and deploy to `npmjs.org`
-
+```shell
+git clone https://github.com/cubing/icons && cd icons
+nix develop  # Optional. See above.
+make
 ```
-npm version major|minor|patch -m "Upgrade to %s for reasons"
+
+Files are build into the `./dist` dir.
+
+### Upgrading/changing dependencies
+
+`package-lock.json` is the source of truth. Use `npm` to change dependencies
+(if all you're doing is installing dependencies, you don't need `npm`).
+
+As soon as `nix` gets [support for `bun`
+lockfiles](https://github.com/NixOS/nixpkgs/issues/255890), we can remove this
+quirk.
+
+### Releasing
+
+To bump the version and deploy to `npmjs.org`:
+
+```shell
+npm version [major|minor|patch] -m "Release description"
+git push --follow-tags
+make publish
 ```

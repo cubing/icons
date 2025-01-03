@@ -3,18 +3,13 @@
     {
       self',
       pkgs,
-      pkgs-with-phantom-js,
       ...
     }:
     let
       src = ../.;
-      inherit (pkgs) nodejs;
       npmDeps = pkgs.importNpmLock.buildNodeModules {
         npmRoot = src;
-        inherit nodejs;
-        derivationArgs.nativeBuildInputs = [
-          pkgs-with-phantom-js.phantomjs2
-        ];
+        inherit (pkgs) nodejs;
       };
     in
     {
@@ -23,8 +18,7 @@
         inherit src;
 
         nativeBuildInputs = [
-          nodejs
-          pkgs.potrace
+          pkgs.bun
         ];
 
         configurePhase = ''
@@ -32,14 +26,14 @@
         '';
 
         buildPhase = ''
-          npm run build
+          make build
         '';
 
         installPhase = ''
-          mv ./www $out
+          # TODO: https://github.com/cubing/icons/pull/138
+          touch $out
+          # mv ./dist/web/icons.cubing.net $out
         '';
-
-        passthru.npmDeps = npmDeps;
       };
 
       checks.www = self'.packages.www;

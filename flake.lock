@@ -46,22 +46,6 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/5487e69da40cbd611ab2cadee0b4637225f7cfae.tar.gz"
       }
     },
-    "nixpkgs-with-phantomjs": {
-      "locked": {
-        "lastModified": 1650308445,
-        "narHash": "sha256-3muuhz3fjtF1bz32UXOYCho51E8JSeEwo2iDZFQJdXo=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d1c3fea7ecbed758168787fe4e4a3157e52bc808",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d1c3fea7ecbed758168787fe4e4a3157e52bc808",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1733097829,
@@ -82,7 +66,6 @@
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-with-phantomjs": "nixpkgs-with-phantomjs",
         "systems": "systems",
         "treefmt-nix": "treefmt-nix"
       }
