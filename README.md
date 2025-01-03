@@ -6,28 +6,40 @@
 
 ## Development
 
-Most development is simply adding/changing existing SVG files under the [`./src/svg` directory](https://github.com/cubing/icons/tree/main/src/svg). If you haven't dealt with SVG files before, check out [Inkscape](https://inkscape.org/).
+Most development is simply adding/changing existing SVG files under the
+[`./src/svg` directory](https://github.com/cubing/icons/tree/main/src/svg). If
+you haven't dealt with SVG files before, check out
+[Inkscape](https://inkscape.org/).
 
 If you want to actually build a font or CSS locally, you'll need some more tooling.
 
-## Build the project
+### Build the project
 
-This project uses [`bun`](https://bun.sh/) for development. With `bun` installed, you can run:
+You'll [`bun`](https://bun.sh) to install development dependencies.
+
+If you don't have `bun` installed, we provide a [`nix`](https://nixos.org/)
+shell you can activate with `nix develop`.
 
 ```shell
 git clone https://github.com/cubing/icons && cd icons
+nix develop  # Optional. See above.
 make
 ```
 
 Files are build into the `./dist` dir.
 
-### Develop using `nix`
+### Upgrading/changing dependencies
 
-TODO: adapt `nix` info.
+`package-lock.json` is the source of truth. Use `npm` to change dependencies
+(if all you're doing is installing dependencies, you don't need `npm`).
 
-## Releasing
+As soon as `nix` gets [support for `bun`
+lockfiles](https://github.com/NixOS/nixpkgs/issues/255890), we can remove this
+quirk.
 
-### Bump version and deploy to `npmjs.org`
+### Releasing
+
+To bump the version and deploy to `npmjs.org`:
 
 ```shell
 npm version [major|minor|patch] -m "Release description"

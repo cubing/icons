@@ -1,3 +1,8 @@
+# Yes, this is a bit funky. See "Upgrading/changing dependencies" in README.md
+# for details.
+bun.lockb: package-lock.json
+	bun pm migrate --force
+
 .PHONY: build
 build: build-lib
 
@@ -6,9 +11,11 @@ build-lib: setup
 	bun run script/build-lib.ts
 
 .PHONY: setup
-setup:
+setup: bun.lockb
+ifndef NIX_BUILD_TOP
 	# Makes sure dependencies match the current checkout. Very fast no-op.
-	bun install --no-save
+	bun install --no-save --verbose
+endif
 
 .PHONY: lint
 lint: setup
