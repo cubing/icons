@@ -18,7 +18,7 @@ build-web: setup
 setup: bun.lockb
 ifndef NIX_BUILD_TOP
 	# Makes sure dependencies match the current checkout. Very fast no-op.
-	bun install --no-save --verbose
+	bun install --no-save
 endif
 
 .PHONY: lint
