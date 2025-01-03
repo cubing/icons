@@ -157,3 +157,8 @@ h1 {
   font-size: var(--icon-scale);
   text-decoration: none;
 }
+
+hr {
+  margin: 2em 0;
+  opacity: 50%;
+}
