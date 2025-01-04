@@ -1,6 +1,6 @@
 {
 	"name": "@cubing/icons",
-	"version": "2.1.0-pre.3",
+	"version": "2.1.0-pre.4",
 	"author": "The https://github.com/cubing team",
 	"homepage": "https://github.com/cubing/icons#readme",
 	"license": "MIT",
@@ -35,5 +35,8 @@
 	"scripts": {
 		"prepublishOnly": "make prepublishOnly"
 	},
-	"files": ["./dist/lib/", "./ts/"]
+	"files": [
+		"./dist/lib/",
+		"./ts/"
+	]
 }
