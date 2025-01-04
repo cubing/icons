@@ -1,0 +1,8 @@
+{
+  "main": "./import-shim.css",
+  "exports": {
+    ".": {
+      "default": "./import-shim.css"
+    }
+  }
+}
