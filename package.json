@@ -1,6 +1,6 @@
 {
   "name": "@cubing/icons",
-  "version": "2.1.0-pre.2",
+  "version": "2.1.0-pre.3",
   "author": "",
   "repository": {
     "type": "git",
@@ -32,7 +32,10 @@
     "url": "https://github.com/cubing/icons.git/issues"
   },
   "description": "Cubing Icons and Fonts",
-  "files": ["dist", "ts"],
+  "files": [
+    "dist",
+    "ts"
+  ],
   "homepage": "https://github.com/cubing/icons.git#readme",
   "license": "MIT",
   "type": "module"
