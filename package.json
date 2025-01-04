@@ -1,42 +1,39 @@
 {
-  "name": "@cubing/icons",
-  "version": "2.1.0-pre.3",
-  "author": "The https://github.com/cubing team",
-  "homepage": "https://github.com/cubing/icons#readme",
-  "license": "MIT",
-  "type": "module",
-  "description": "Cubing Icons and Fonts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cubing/icons.git"
-  },
-  "bugs": {
-    "url": "https://github.com/cubing/icons.git/issues"
-  },
-  "main": "./dist/lib/@cubing/icons/cubing-icons.css",
-  "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@types/bun": "^1.1.14",
-    "@types/jsdom": "^21.1.7",
-    "fantasticon": "^3.0.0",
-    "jsdom": "^25.0.1"
-  },
-  "exports": {
-    ".": {
-      "default": "./dist/lib/@cubing/icons/cubing-icons.css"
-    },
-    "./css": {
-      "default": "./dist/lib/@cubing/icons/cubing-icons.css"
-    },
-    "./ts": {
-      "default": "./ts/index.ts"
-    }
-  },
-  "scripts": {
-    "prepublishOnly": "make prepublishOnly"
-  },
-  "files": [
-    "dist",
-    "ts"
-  ]
+	"name": "@cubing/icons",
+	"version": "2.1.0-pre.3",
+	"author": "The https://github.com/cubing team",
+	"homepage": "https://github.com/cubing/icons#readme",
+	"license": "MIT",
+	"type": "module",
+	"description": "Cubing Icons and Fonts",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/cubing/icons.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cubing/icons.git/issues"
+	},
+	"main": "./dist/lib/@cubing/icons/cubing-icons.css",
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@types/bun": "^1.1.14",
+		"@types/jsdom": "^21.1.7",
+		"fantasticon": "^3.0.0",
+		"jsdom": "^25.0.1"
+	},
+	"exports": {
+		".": {
+			"default": "./dist/lib/@cubing/icons/cubing-icons.css"
+		},
+		"./css": {
+			"default": "./dist/lib/@cubing/icons/cubing-icons.css"
+		},
+		"./ts": {
+			"default": "./ts/index.ts"
+		}
+	},
+	"scripts": {
+		"prepublishOnly": "make prepublishOnly"
+	},
+	"files": ["./dist/lib/", "./ts/"]
 }
