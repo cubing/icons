@@ -42,4 +42,4 @@ publish:
 	npm publish
 
 .PHONY: prepublishOnly
-prepublishOnly: lint
+prepublishOnly: clean lint build-lib
