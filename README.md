@@ -47,3 +47,13 @@ npm version [major|minor|patch] -m "Release description"
 git push --follow-tags
 make publish
 ```
+
+#### CDN
+
+Note that `cdn.cubing.net` requires an explicit version bump and deployment in order to pick up the new `@cubing/icons` version:
+
+```shell
+git clone https://github.com/cubing/cdn.cubing.net && cd cdn.cubing.net
+# Requires SSH and optional Fastly credentials to deploy
+make roll-@cubing/icons
+```
