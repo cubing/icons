@@ -33,6 +33,9 @@ await writeFile(
 // This places output files in an awkward directory structure, but it keeps our
 // transpilation setup as simple as possible. The alternatives come with
 // potentially heavy tradeoffs: https://github.com/cubing/icons/issues/146
+//
+// Also note that `--skipLibCheck` is not ideal, but the easiest way to work
+// around https://github.com/oven-sh/bun/issues/8761
 await $`bun x tsc \
   --skipLibCheck \
   --declaration \
