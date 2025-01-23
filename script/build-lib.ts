@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { $ } from "bun";
 import { FontAssetType, OtherAssetType, generateFonts } from "fantasticon";
 
 const LIB_OUTPUT_DIR = "dist/lib/@cubing/icons";
@@ -28,5 +29,15 @@ await writeFile(
       ".cubing-icon:before {\n  vertical-align: -15%;",
     ),
 );
+
+// This places output files in an awkward directory structure, but it keeps our
+// transpilation setup as simple as possible. The alternatives come with
+// potentially heavy tradeoffs: https://github.com/cubing/icons/issues/146
+await $`bun x tsc \
+  --skipLibCheck \
+  --declaration \
+  --target es2022 \
+  --outdir ./dist/lib/@cubing/icons/js \
+  ./ts/index.ts`;
 
 console.log(`The library has been built at: ${LIB_OUTPUT_DIR}`);
