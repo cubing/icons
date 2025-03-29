@@ -13,8 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
-      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: cachix/install-nix-action@v31
+      - uses: cachix/cachix-action@v16
+        with:
+          name: cubing
+          authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
       - run: nix build .#web --out-link ./dist/web/icons.cubing.net
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
