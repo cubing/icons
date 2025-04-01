@@ -1,7 +1,8 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir } from "node:fs/promises";
 import { join } from "node:path";
 import { $ } from "bun";
 import { FontAssetType, OtherAssetType, generateFonts } from "fantasticon";
+import { fixupCSS, generateFontsCommonOptions } from "./build-lib-common";
 
 const LIB_OUTPUT_DIR = "dist/lib/@cubing/icons";
 const OUTPUT_ICONS_CSS = join(LIB_OUTPUT_DIR, "cubing-icons.css");
@@ -9,26 +10,13 @@ const OUTPUT_ICONS_CSS = join(LIB_OUTPUT_DIR, "cubing-icons.css");
 await mkdir(LIB_OUTPUT_DIR, { recursive: true });
 
 await generateFonts({
-  inputDir: "src/svg/",
+  ...generateFontsCommonOptions,
   outputDir: LIB_OUTPUT_DIR,
   fontTypes: [FontAssetType.WOFF2],
   assetTypes: [OtherAssetType.TS, OtherAssetType.CSS],
-  selector: ".cubing-icon",
-  name: "cubing-icons",
 });
 
-// `fantasticon` does not support a completely empty prefix: https://github.com/tancredi/fantasticon/issues/511
-// So we remove the default prefix manually.
-const iconsCSSContents = await readFile(OUTPUT_ICONS_CSS, "utf-8");
-await writeFile(
-  OUTPUT_ICONS_CSS,
-  iconsCSSContents
-    .replaceAll(".cubing-icon.icon-", ".cubing-icon.")
-    .replaceAll(
-      ".cubing-icon:before {",
-      ".cubing-icon:before {\n  vertical-align: -15%;",
-    ),
-);
+await fixupCSS(OUTPUT_ICONS_CSS);
 
 // This places output files in an awkward directory structure, but it keeps our
 // transpilation setup as simple as possible. The alternatives come with

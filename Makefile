@@ -31,7 +31,7 @@ format: setup
 
 .PHONY: clean
 clean:
-	rm -rf ./dist/
+	rm -rf ./.temp/ ./dist/
 
 .PHONY: reset
 reset: clean
