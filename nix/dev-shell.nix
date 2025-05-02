@@ -1,16 +1,15 @@
 {
   perSystem =
-    { self', pkgs, ... }:
+    { pkgs, ... }:
 
     {
       devShells.default = pkgs.mkShell {
-        inputsFrom = [
-          self'.packages.web
-        ];
         packages = [
-          # Provides `npm`, which we use because nix doesn't have
-          # support for `bun` lockfiles:
-          # <https://github.com/NixOS/nixpkgs/issues/255890>.
+          pkgs.gnumake
+          pkgs.bun
+          # Provides `npm`, which we use for releasing (see ../README.md). We
+          # should automate that instead, see
+          # <https://github.com/cubing/actions-workflows/issues/3>.
           pkgs.nodejs
         ];
       };
