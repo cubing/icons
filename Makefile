@@ -1,11 +1,6 @@
 .PHONY: build
 build: build-lib build-web
 
-# Yes, this is a bit funky. See "Upgrading/changing dependencies" in README.md
-# for details.
-bun.lock: package-lock.json
-	bun pm migrate --save-text-lockfile --force
-
 .PHONY: build-lib
 build-lib: build-lib-js build-lib-types
 
@@ -22,11 +17,9 @@ build-web: setup build-lib
 	bun run script/build-web.ts
 
 .PHONY: setup
-setup: bun.lock
-ifndef NIX_BUILD_TOP
+setup:
 	@# Makes sure dependencies match the current checkout. Very fast no-op.
-	bun install --no-save
-endif
+	bun install --frozen-lockfile
 
 .PHONY: test
 test: lint bun-test
@@ -58,7 +51,6 @@ clean:
 .PHONY: reset
 reset: clean
 	rm -rf ./node_modules
-	rm -rf ./bun.lock
 
 .PHONY: publish
 publish:

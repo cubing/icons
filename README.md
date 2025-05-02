@@ -32,15 +32,6 @@ Files are build into the `./dist` directory.
 
 We provide a [`nix`](https://nixos.org/) shell that you can activate with `nix develop`.
 
-### Upgrading/changing dependencies
-
-`package-lock.json` is the source of truth. Use `npm` to change dependencies
-(if all you're doing is installing dependencies, you don't need `npm`).
-
-As soon as `nix` gets [support for `bun`
-lockfiles](https://github.com/NixOS/nixpkgs/issues/255890), we can remove this
-quirk.
-
 ### Releasing
 
 To bump the version and deploy to `npmjs.org`:

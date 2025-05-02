@@ -2,13 +2,13 @@
 /dist/
 /node_modules/
 
-# This is a `bun` project, but we still use `package-lock.json` as the source
-# of truth for our dependencies.
-# See the `bun.lock` target in `Makefile` for more details.
-/bun.lock
-/bun.lockb
-
 # These would be more appropriate in individual user's `.git/info/exclude`
 # files, but must be here to work around <https://github.com/biomejs/biome/issues/4822>.
 /.direnv
 /.envrc
+
+# This is one of many types of files that's completely irrelevant to this
+# project. See
+# <https://github.com/cubing/icons/pull/156#discussion_r2271657477> for
+# details.
+/package-lock.json
