@@ -1,30 +1,18 @@
-{ inputs, ... }:
 {
-  imports = [ inputs.treefmt-nix.flakeModule ];
-
   perSystem =
+    { self', pkgs, ... }:
     {
-      config,
-      lib,
-      pkgs,
-      ...
-    }:
-    {
-      treefmt = {
-        flakeCheck = true;
-        programs = {
-          nixfmt.enable = true;
-          biome.enable = true;
-        };
-        settings.formatter = {
-          "biome-check" = {
-            command = lib.getExe pkgs.biome;
-            options = [
-              "check"
-            ];
-            inherit (config.treefmt.programs.biome) includes;
-          };
-        };
+      # Defer to `make format` for any formatting.
+      formatter = pkgs.writeShellApplication {
+        name = "format";
+        runtimeInputs = self'.devShells.default.nativeBuildInputs ++ [
+          (pkgs.writers.writePython3Bin "shlex_join" { } ''
+            import shlex
+            import sys
+            print(shlex.join(sys.argv[1:]))
+          '')
+        ];
+        text = ''make format FMT_PATHS="$(shlex_join "$@")"'';
       };
     };
 }

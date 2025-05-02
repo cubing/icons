@@ -1,11 +1,12 @@
 {
   perSystem =
-    { self', pkgs, ... }:
+    { pkgs, ... }:
 
     {
       devShells.default = pkgs.mkShell {
-        inputsFrom = [
-          self'.packages.web
+        packages = [
+          pkgs.gnumake
+          pkgs.bun
         ];
       };
     };
