@@ -2,3 +2,7 @@
 /dist
 /node_modules
 /result
+
+# This shouldn't be here, but needs to be as a workaround for
+# https://github.com/biomejs/biome/issues/4822
+/.direnv
