@@ -11,7 +11,7 @@ build-lib: setup
 	bun run script/build-lib.ts
 
 .PHONY: build-web
-build-web: setup
+build-web: setup build-lib
 	bun run script/build-web.ts
 
 .PHONY: setup
