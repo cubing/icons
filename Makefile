@@ -36,6 +36,7 @@ clean:
 .PHONY: reset
 reset: clean
 	rm -rf ./node_modules
+	rm -rf ./bun.lock
 
 .PHONY: publish
 publish:
