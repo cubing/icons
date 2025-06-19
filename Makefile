@@ -1,11 +1,6 @@
 .PHONY: build
 build: build-lib build-web
 
-# Yes, this is a bit funky. See "Upgrading/changing dependencies" in README.md
-# for details.
-bun.lock: package-lock.json
-	bun pm migrate --save-text-lockfile --force
-
 .PHONY: build-lib
 build-lib: setup
 	bun run script/build-lib.ts
@@ -16,10 +11,8 @@ build-web: setup build-lib
 
 .PHONY: setup
 setup: bun.lock
-ifndef NIX_BUILD_TOP
 	@# Makes sure dependencies match the current checkout. Very fast no-op.
 	bun install --no-save
-endif
 
 .PHONY: lint
 lint: setup
@@ -27,7 +20,7 @@ lint: setup
 
 .PHONY: format
 format: setup
-	bun x @biomejs/biome check --write
+	bun x @biomejs/biome check --write $(FMT_PATHS)
 
 .PHONY: clean
 clean:
