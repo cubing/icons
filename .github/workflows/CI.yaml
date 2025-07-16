@@ -26,4 +26,5 @@ jobs:
           node-version: 22
       - uses: oven-sh/setup-bun@v1
       - run: make setup
-      - run: make lint
+      - run: make lint-ts-biome
+      - run: make lint-ts-tsc

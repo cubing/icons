@@ -22,8 +22,16 @@ ifndef NIX_BUILD_TOP
 endif
 
 .PHONY: lint
-lint: setup
+lint: setup lint-ts-biome lint-ts-tsc
+
+.PHONY: lint-ts-biome
+lint-ts-biome:
 	bun x @biomejs/biome check
+
+.PHONY: lint-ts-tsc
+# `./script/build-web.ts` imports the list of icons from the build lib, so we need to `build-lib` before we can lint.
+lint-ts-tsc: build-lib
+	bun x tsc --noEmit --project .
 
 .PHONY: format
 format: setup

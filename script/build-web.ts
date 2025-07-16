@@ -3,9 +3,7 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { JSDOM } from "jsdom";
 
-const { CubingIcons } = await import(
-  "../dist/lib/@cubing/icons/cubing-icons.ts"
-);
+const { CubingIcons } = await import("../dist/lib/@cubing/icons/cubing-icons");
 
 const SITE_OUTPUT_DIR = "./dist/web/icons.cubing.net";
 const SITE_SRC_DIR = "./src/web/icons.cubing.net";
