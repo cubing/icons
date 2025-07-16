@@ -31,6 +31,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@cubing/dev-config": "^0.3.6",
 		"@types/bun": "^1.2.8",
 		"@types/jsdom": "^21.1.7",
 		"fantasticon": "^3.0.0",
