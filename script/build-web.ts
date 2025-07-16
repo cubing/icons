@@ -1,4 +1,4 @@
-import assert from "node:assert";
+import { default as assert } from "node:assert";
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { JSDOM } from "jsdom";
