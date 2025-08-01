@@ -28,3 +28,4 @@ jobs:
       - run: make setup
       - run: make lint-ts-biome
       - run: make lint-ts-tsc
+      - run: make bun-test
