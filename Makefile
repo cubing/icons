@@ -21,6 +21,13 @@ ifndef NIX_BUILD_TOP
 	bun install --no-save
 endif
 
+.PHONY: test
+test: lint bun-test
+
+.PHONY: bun-test
+bun-test:
+	bun test
+
 .PHONY: lint
 lint: setup lint-ts-biome lint-ts-tsc
 
