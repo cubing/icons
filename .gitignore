@@ -7,3 +7,8 @@
 # See the `bun.lock` target in `Makefile` for more details.
 /bun.lock
 /bun.lockb
+
+# These would be more appropriate in individual user's `.git/info/exclude`
+# files, but must be here to work around <https://github.com/biomejs/biome/issues/4822>.
+/.direnv
+/.envrc
