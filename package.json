@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/cubing/icons#readme",
 	"license": "MIT",
 	"type": "module",
-	"description": "Cubing Icons and Fonts",
+	"description": "Icons for WCA events, unofficial events, and competition-related concepts.",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/cubing/icons.git"
