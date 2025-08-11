@@ -1,5 +1,5 @@
 import { mkdir } from "node:fs/promises";
-import { FontAssetType, OtherAssetType, generateFonts } from "fantasticon";
+import { FontAssetType, generateFonts, OtherAssetType } from "fantasticon";
 
 const LIB_OUTPUT_DIR = "dist/lib/@cubing/icons";
 

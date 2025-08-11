@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { Glob, file } from "bun";
+import { file, Glob } from "bun";
 import { JSDOM } from "jsdom";
 
 test("SVG files are all 500×500", async () => {
