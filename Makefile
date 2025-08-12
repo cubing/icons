@@ -7,8 +7,15 @@ bun.lock: package-lock.json
 	bun pm migrate --save-text-lockfile --force
 
 .PHONY: build-lib
-build-lib: setup
-	bun run script/build-lib.ts
+build-lib: build-lib-js build-lib-types
+
+.PHONY: build-lib-js
+build-lib-js: setup
+	bun run script/build-lib-js.ts
+
+.PHONY: build-lib-types
+build-lib-types: build-lib-js
+	bun x tsc --project ./tsconfig.build.json
 
 .PHONY: build-web
 build-web: setup build-lib
@@ -32,7 +39,7 @@ bun-test:
 lint: setup lint-ts-biome lint-ts-tsc
 
 .PHONY: lint-ts-biome
-lint-ts-biome:
+lint-ts-biome: build-lib
 	bun x @biomejs/biome check
 
 .PHONY: lint-ts-tsc
@@ -46,7 +53,7 @@ format: setup
 
 .PHONY: clean
 clean:
-	rm -rf ./dist/
+	rm -rf ./.temp/ ./dist/
 
 .PHONY: reset
 reset: clean

@@ -13,7 +13,8 @@ jobs:
           node-version: 22
       - uses: oven-sh/setup-bun@v1
       - run: make setup
-      - run: make build-lib
+      - run: make build-lib-js
+      - run: make build-lib-types
       - run: make build-web
 
   test:

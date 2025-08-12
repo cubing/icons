@@ -3,7 +3,10 @@ import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { JSDOM } from "jsdom";
 
-const { CubingIcons } = await import("../dist/lib/@cubing/icons/cubing-icons");
+// Note that the imported file path must be an inline string to allow for type
+// checking, so we don't use `join(TEMP_LIB_OUTPUT_DIR, …)` to deduplicate the
+// folder path.
+const { CubingIcons } = await import("../dist/lib/@cubing/icons/js");
 
 const SITE_OUTPUT_DIR = "./dist/web/icons.cubing.net";
 const SITE_SRC_DIR = "./src/web/icons.cubing.net";
