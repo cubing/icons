@@ -22,8 +22,8 @@
 			"default": "./dist/lib/@cubing/icons/cubing-icons.css"
 		},
 		"./js": {
-			"types": "./dist/lib/@cubing/icons/js/ts/index.d.ts",
-			"default": "./dist/lib/@cubing/icons/js/ts/index.js"
+			"types": "./dist/lib/@cubing/icons/js/index.d.ts",
+			"default": "./dist/lib/@cubing/icons/js/index.js"
 		},
 		"./ts": {
 			"default": "./ts/index.ts"
@@ -37,6 +37,7 @@
 		"@types/svg2ttf": "^5.0.3",
 		"@types/svgicons2svgfont": "10.0.5",
 		"@types/ttf2woff": "^2.0.4",
+		"esbuild": "^0.25.8",
 		"fantasticon": "^3.0.0",
 		"jsdom": "^26.1.0",
 		"typescript": "^5.8.3"

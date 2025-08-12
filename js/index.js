@@ -1,1 +1,1 @@
-import "../dist/lib/@cubing/icons/js/ts/index.js";
+export * from "../dist/lib/@cubing/icons/js/index.js";

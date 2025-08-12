@@ -1,7 +1,6 @@
-/.temp
-/dist
-/node_modules
-/result
+/.temp/
+/dist/
+/node_modules/
 
 # This is a `bun` project, but we still use `package-lock.json` as the source
 # of truth for our dependencies.
