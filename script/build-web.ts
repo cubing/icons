@@ -53,7 +53,7 @@ const wcaEventOrdering = [
 ];
 const classNamesOrdered = wcaEventOrdering.map((eventID) => `event-${eventID}`);
 for (const className of Object.values(CubingIcons).sort()) {
-  if (!className.match(/[a-zA-Z0-9\-]+/)) {
+  if (!className.match(/[a-zA-Z0-9-]+/)) {
     throw new Error("Unexpected class name.");
   }
   if (!classNamesOrdered.includes(className)) {
