@@ -22,11 +22,21 @@ setup:
 	bun install --frozen-lockfile
 
 .PHONY: test
-test: lint bun-test
+test: test-bun test-exports lint
 
-.PHONY: bun-test
-bun-test:
+.PHONY: test-bun
+test-bun:
 	bun test
+
+.PHONY: test-exports
+test-exports: build-lib-js
+	# Yes, this is a lot of test cases: https://github.com/cubing/icons/pull/200#issuecomment-3182362760
+	node -- 'test/exports/test-legacy-export.js'
+	bun run -- 'test/exports/test-legacy-export.js'
+	bun run -- 'test/exports/test-legacy-export.ts'
+	node -- 'test/exports/test-package-export.js'
+	bun run -- 'test/exports/test-package-export.js'
+	bun run -- 'test/exports/test-package-export.ts'
 
 .PHONY: lint
 lint: setup lint-ts-biome lint-ts-tsc
@@ -38,6 +48,7 @@ lint-ts-biome: build-lib-js
 .PHONY: lint-ts-tsc
 lint-ts-tsc: build-lib-types
 	bun x tsc --noEmit --project .
+	bun x tsc --noEmit --project ./test/exports/tsconfig.json
 
 .PHONY: format
 format: setup
@@ -56,4 +67,4 @@ publish:
 	npm publish
 
 .PHONY: prepublishOnly
-prepublishOnly: clean lint build-lib
+prepublishOnly: test clean lint build-lib

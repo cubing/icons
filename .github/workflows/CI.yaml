@@ -33,4 +33,5 @@ jobs:
       - run: make setup
       - run: make clean lint-ts-biome
       - run: make clean lint-ts-tsc
-      - run: make clean bun-test
+      - run: make clean test-bun
+      - run: make clean test-exports
