@@ -1,5 +1,8 @@
 {
   "extends": "./node_modules/@cubing/dev-config/ts/es2022-types/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "."
+  },
   "include": ["**/*"],
-  "exclude": ["./.temp/", "./dist/"]
+  "exclude": ["./.temp/", "./dist/", "./test/exports/"]
 }

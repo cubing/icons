@@ -34,3 +34,4 @@ jobs:
       - run: make clean lint-ts-biome
       - run: make clean lint-ts-tsc
       - run: make clean bun-test
+      - run: make clean test-exports

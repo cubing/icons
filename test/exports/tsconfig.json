@@ -1,0 +1,10 @@
+{
+  "extends": "../../node_modules/@cubing/dev-config/ts/es2022-types/tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "../../",
+    "paths": {
+      "@cubing/icons": ["../"]
+    }
+  },
+  "include": ["**/*"]
+}
