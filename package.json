@@ -36,7 +36,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.1.4",
 		"@cubing/dev-config": "^0.3.6",
-		"@types/bun": "^1.2.8",
+		"@types/bun": "^1.2.20",
 		"@types/jsdom": "^21.1.7",
 		"@types/svg2ttf": "^5.0.3",
 		"@types/svgicons2svgfont": "10.0.5",
@@ -44,7 +44,7 @@
 		"esbuild": "^0.25.8",
 		"fantasticon": "^3.0.0",
 		"jsdom": "^26.1.0",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.2"
 	},
 	"scripts": {
 		"prepublishOnly": "make prepublishOnly"
@@ -53,5 +53,8 @@
 		"./dist/lib/",
 		"./js/",
 		"./ts/"
-	]
+	],
+	"dependencies": {
+		"default": "^0.1.1"
+	}
 }
