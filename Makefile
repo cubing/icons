@@ -15,7 +15,7 @@ build-lib-js: setup
 
 .PHONY: build-lib-types
 build-lib-types: build-lib-js
-	bun x tsc --project ./tsconfig.build.json
+	bun x tsc --project ./tsconfig.build.jsonc
 
 .PHONY: build-web
 build-web: setup build-lib-js
