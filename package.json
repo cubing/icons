@@ -29,6 +29,10 @@
 			"default": "./ts/index.ts"
 		}
 	},
+	"engines": {
+		"node": ">=22.3.0",
+		"bun": ">=1.2.19"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.1.4",
 		"@cubing/dev-config": "^0.3.6",

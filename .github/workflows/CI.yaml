@@ -11,7 +11,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.2.19"
       - run: make setup
       - run: make clean build-lib-js
       - run: make clean build-lib-types
@@ -25,7 +27,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - uses: oven-sh/setup-bun@v1
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "1.2.19"
       - run: make setup
       - run: make clean lint-ts-biome
       - run: make clean lint-ts-tsc
