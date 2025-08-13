@@ -18,7 +18,7 @@ build-lib-types: build-lib-js
 	bun x tsc --project ./tsconfig.build.json
 
 .PHONY: build-web
-build-web: setup build-lib
+build-web: setup build-lib-js
 	bun run script/build-web.ts
 
 .PHONY: setup
@@ -39,12 +39,11 @@ bun-test:
 lint: setup lint-ts-biome lint-ts-tsc
 
 .PHONY: lint-ts-biome
-lint-ts-biome: build-lib
+lint-ts-biome: build-lib-js
 	bun x @biomejs/biome check
 
 .PHONY: lint-ts-tsc
-# `./script/build-web.ts` imports the list of icons from the build lib, so we need to `build-lib` before we can lint.
-lint-ts-tsc: build-lib
+lint-ts-tsc: build-lib-types
 	bun x tsc --noEmit --project .
 
 .PHONY: format
