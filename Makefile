@@ -1,16 +1,22 @@
 .PHONY: build
 build: build-lib build-web
 
+include build.Makefile
+
 .PHONY: build-lib
-build-lib: build-lib-js build-lib-types
+build-lib: build-lib-css build-lib-js build-lib-types
 
 .PHONY: build-lib-js
-build-lib-js: setup
-	bun run script/build-lib-js.ts
+build-lib-js: ./dist/lib/@cubing/icons/cubing-icons.css
+
+.PHONY: build-lib-css
+build-lib-css: ./dist/lib/@cubing/icons/cubing-icons.woff2
+
+.PHONY: build-lib-js
+build-lib-js: ./dist/lib/@cubing/icons/js/index.js
 
 .PHONY: build-lib-types
-build-lib-types: build-lib-js
-	bun x tsc --project ./tsconfig.build.jsonc
+build-lib-types: ./dist/lib/@cubing/icons/js/index.d.ts
 
 .PHONY: build-web
 build-web: setup build-lib-js
