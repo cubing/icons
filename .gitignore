@@ -7,8 +7,16 @@
 /.direnv
 /.envrc
 
-# This is one of many types of files that's completely irrelevant to this
-# project. See
-# <https://github.com/cubing/icons/pull/156#discussion_r2271657477> for
+# This file should not exist in this repo unless created by accident, which in
+# theory is no different than any other file created by accident.
+#
+# However, we *used* to use `package-lock.json` in this repo, and there are some
+# unfortunate interactions between JS ecosystem tools and/or version control
+# systems [^1] that make this kind of accident more likely. Preventing it from
+# being committed should avoid more surprises than it can cause.
+#
+# See <https://github.com/cubing/icons/pull/156#discussion_r2271657477> for more
 # details.
+#
+# [^1]: In particular `jj` is still lacking some guards against this: https://github.com/jj-vcs/jj/issues/5596
 /package-lock.json
