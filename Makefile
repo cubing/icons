@@ -28,10 +28,10 @@ setup:
 	bun install --frozen-lockfile
 
 .PHONY: test
-test: lint bun-test
+test: lint test-bun
 
-.PHONY: bun-test
-bun-test:
+.PHONY: test-bun
+test-bun: setup
 	bun test
 
 .PHONY: lint

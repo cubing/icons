@@ -33,4 +33,4 @@ jobs:
       - run: make setup # This will be reset below, but it tests that `make setup` works on its own.
       - run: make reset lint-ts-biome
       - run: make reset lint-ts-tsc
-      - run: make reset bun-test
+      - run: make reset test-bun
