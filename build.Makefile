@@ -1,4 +1,4 @@
-./.temp/lib/cubing-icons.woff2: ./src/svg/**/*.svg script/build-lib-js.ts
+./.temp/lib/cubing-icons.woff2: ./src/svg/**/*.svg script/build-lib-js.ts setup
 	bun run script/build-lib-js.ts
 ./.temp/lib/cubing-icons.css: ./.temp/lib/cubing-icons.woff2
 ./.temp/lib/cubing-icons.ts: ./.temp/lib/cubing-icons.woff2
