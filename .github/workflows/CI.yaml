@@ -14,10 +14,10 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: "1.2.19"
-      - run: make setup
-      - run: make clean build-lib-js
-      - run: make clean build-lib-types
-      - run: make clean build-web
+      - run: make setup # This will be reset below, but it tests that `make setup` works on its own.
+      - run: make reset build-lib-js
+      - run: make reset build-lib-types
+      - run: make reset build-web
 
   test:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
       - uses: oven-sh/setup-bun@v2
         with:
           bun-version: "1.2.19"
-      - run: make setup
-      - run: make clean lint-ts-biome
-      - run: make clean lint-ts-tsc
-      - run: make clean bun-test
+      - run: make setup # This will be reset below, but it tests that `make setup` works on its own.
+      - run: make reset lint-ts-biome
+      - run: make reset lint-ts-tsc
+      - run: make reset bun-test
