@@ -25,7 +25,7 @@ setup:
 test: test-bun test-exports lint
 
 .PHONY: test-bun
-test-bun:
+test-bun: setup
 	bun test
 
 .PHONY: test-exports
