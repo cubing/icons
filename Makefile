@@ -1,6 +1,9 @@
 .PHONY: build
 build: build-lib build-web
 
+.PHONY: check
+check: lint test build check-package.json
+
 .PHONY: build-lib
 build-lib: build-lib-js build-lib-types
 
@@ -10,7 +13,7 @@ build-lib-js: setup
 
 .PHONY: build-lib-types
 build-lib-types: build-lib-js
-	bun x tsc --project ./tsconfig.build.jsonc
+	bun x -- bun-dx --package typescript tsc -- --project ./tsconfig.build.jsonc
 
 .PHONY: build-web
 build-web: setup build-lib-js
@@ -43,16 +46,20 @@ lint: setup lint-ts-biome lint-ts-tsc
 
 .PHONY: lint-ts-biome
 lint-ts-biome: build-lib-js
-	bun x @biomejs/biome check
+	bun x -- bun-dx --package @biomejs/biome biome -- check
 
 .PHONY: lint-ts-tsc
 lint-ts-tsc: build-lib-types
-	bun x tsc --noEmit --project .
-	bun x tsc --noEmit --project ./test/exports/tsconfig.json
+	bun x -- bun-dx --package typescript tsc -- --project .
+	bun x -- bun-dx --package typescript tsc -- --project ./test/exports/tsconfig.json
 
 .PHONY: format
 format: setup
-	bun x @biomejs/biome check --write
+	bun x -- bun-dx --package @biomejs/biome biome -- check --write
+
+.PHONY: check-package.json
+check-package.json: build
+	bun x --package @cubing/dev-config package.json -- check
 
 .PHONY: clean
 clean:
@@ -67,4 +74,4 @@ publish:
 	npm publish
 
 .PHONY: prepublishOnly
-prepublishOnly: test clean lint build-lib
+prepublishOnly: clean check build

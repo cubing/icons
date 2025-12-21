@@ -18,6 +18,7 @@ jobs:
       - run: make clean build-lib-js
       - run: make clean build-lib-types
       - run: make clean build-web
+      - run: make clean check-package.json
 
   test:
     runs-on: ubuntu-latest
