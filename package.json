@@ -50,7 +50,6 @@
   },
   "files": [
     "./dist/lib/",
-    "./src/svg/",
     "./js/",
     "./ts/"
   ],
