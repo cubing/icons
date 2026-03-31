@@ -4,16 +4,26 @@
 
 <https://icons.cubing.net>
 
-## Development
+## Contributing
 
 Most development is simply adding/changing existing SVG files under the
-[`./src/svg` directory](https://github.com/cubing/icons/tree/main/src/svg). If
-you haven't dealt with SVG files before, check out
-[Inkscape](https://inkscape.org/).
+[`./src/svg` directory](https://github.com/cubing/icons/tree/main/src/svg). 
 
-If you want to actually build a font or CSS locally, you'll need some more tooling.
+To add a new icon, please follow the following steps:
+
+1. Make or edit your icon! All icons should be vector SVG files. If
+you haven't dealt with SVGs before, check out
+[Inkscape](https://inkscape.org/).
+1. Make sure your SVG is cleaned up and minified. You can just upload your SVG file to [SVGOMG](https://jakearchibald.github.io/svgomg/) and then download the output file using the default settings.
+2. Name your icon in all lowercase, separating each word with an underscore. If specifying the dimensions of a cube in your icon, name, don't include any `x` symbols. (correct: `crazy_333.svg`, incorrect: `Crazy-3x3x3.SVG`)
+3. Remove any borders and fill colors from the your icon. To do this, look inside the SVG file and remove anything that looks like `fill="..."` or `stroke="..."`.
+4. Make a pull request here in GitHub adding your new icon file.
+
+Our maintainers can help you with any of the above steps if you need help.
 
 ### Build the project
+
+If you want to actually build a font or CSS locally, you'll need some more tooling.
 
 You'll need [`bun`](https://bun.sh) to install development dependencies and
 build the project. Either install `bun` with your preferred package manager, or
