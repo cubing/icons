@@ -1,0 +1,13 @@
+<svg height="500" width="500" xmlns="http://www.w3.org/2000/svg">
+	<mask id="splits">
+		<rect width="500" height="500" fill="white"/>
+		<path d="M125 73.2233L375 426.77669M125 426.77669L375 73.2233" stroke="black" stroke-width="20"/>
+		<path d="
+			M188.79409 154.78152L250 68.2233L311.2059 154.78152z
+			M188.79409 345.21847L250 431.7767L311.2059 345.21847z
+			M53.48952 157.03388L184.61324 342.96611M53.48952 342.96611L184.61324 157.03388
+			M315.38675 157.03388L446.51047 342.96611M315.38675 342.96611L446.51047 157.03388
+		" stroke="black" stroke-width="10" fill="none"/>
+	</mask>
+	<path d="m0 250 l125-176.77669h250l125 176.77669l-125 176.77669h-250z" fill-rule="evenodd" fill="black" mask="url(#splits)"/>
+</svg>
