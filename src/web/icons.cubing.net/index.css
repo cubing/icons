@@ -130,6 +130,7 @@ a.section-header-link:hover::before {
   padding: 0;
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li a {
   height: 100%;
   background-color: color-mix(in oklab, currentColor 10%, transparent);
@@ -142,22 +143,27 @@ a.section-header-link:hover::before {
   overflow-wrap: anywhere;
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li:nth-child(5n + 1) a {
   color: light-dark(#222222, #dddddd);
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li:nth-child(5n + 2) a {
   color: color-mix(in oklab, orange 70%, currentColor);
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li:nth-child(5n + 3) a {
   color: color-mix(in oklab, green 70%, currentColor);
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li:nth-child(5n + 4) a {
   color: color-mix(in oklab, red 70%, currentColor);
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li:nth-child(5n + 5) a {
   color: color-mix(in oklab, blue 70%, currentColor);
 }
@@ -168,6 +174,7 @@ a.section-header-link:hover::before {
   border-radius: 3px;
 }
 
+/* biome-ignore lint/style/noDescendingSpecificity: TODO */
 .icons-list li:target a {
   /* color: light-dark(blue, rebeccapurple); */
   /* background-color: color-mix(in oklab, purple 60%, transparent); */
