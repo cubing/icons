@@ -61,13 +61,15 @@ format: setup
 check-package.json: build
 	bun x --package @cubing/dev-config package.json -- check
 
+RM_RF = bun -e 'process.argv.slice(1).map(p => process.getBuiltinModule("node:fs").rmSync(p, {recursive: true, force: true, maxRetries: 5}))' --
+
 .PHONY: clean
 clean:
-	rm -rf ./.temp/ ./dist/
+	${RM_RF} -- ./.temp/ ./dist/
 
 .PHONY: reset
 reset: clean
-	rm -rf ./node_modules
+	${RM_RF} -- ./node_modules/
 
 .PHONY: publish
 publish:
