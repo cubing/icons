@@ -3,6 +3,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
+    "rootDir": "./src/js/",
     "outDir": "./dist/lib/@cubing/icons/js",
     // The types are checked by the main `tsconfig.json`. We skip the check here
     // to allow faster building of the types files, which we need to do

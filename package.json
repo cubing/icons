@@ -55,5 +55,8 @@
   ],
   "scripts": {
     "prepublishOnly": "make prepublishOnly"
+  },
+  "patchedDependencies": {
+    "undici-types@8.9.0": "patches/undici-types@8.9.0.patch"
   }
 }
