@@ -49,8 +49,14 @@ lint-ts-biome: build-lib-js
 	bun x -- bun-dx --package @biomejs/biome biome -- check
 
 .PHONY: lint-ts-tsc
-lint-ts-tsc: build-lib-types
+lint-ts-tsc: lint-ts-tsc-main lint-ts-tsc-test-exports
+
+.PHONY: lint-ts-tsc-main
+lint-ts-tsc-main: build-lib-types
 	bun x -- bun-dx --package typescript tsc -- --project .
+
+.PHONY: lint-ts-tsc-test-exports
+lint-ts-tsc-test-exports: build-lib-types
 	bun x -- bun-dx --package typescript tsc -- --project ./test/exports/tsconfig.json
 
 .PHONY: format
