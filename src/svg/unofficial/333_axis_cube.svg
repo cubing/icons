@@ -1,0 +1,10 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+<rect width="100%" height="100%" fill="none" />
+<mask id="m"><rect x="60" y="60" width="392" height="392" fill="white" />
+<line x1="60" y1="60" x2="452" y2="452" stroke="black" stroke-width="10" />
+<line x1="256" y1="60" x2="452" y2="256" stroke="black" stroke-width="10" />
+<line x1="256" y1="60" x2="60" y2="452" stroke="black" stroke-width="10" />
+<line x1="452" y1="256" x2="60" y2="452" stroke="black" stroke-width="10" />
+</mask>
+<rect x="60" y="60" width="392" height="392" fill="black" mask="url(#m)" />
+</svg>
