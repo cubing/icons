@@ -36,3 +36,4 @@ jobs:
       - run: make clean lint-ts-tsc
       - run: make clean test-bun
       - run: make clean test-exports
+      - run: make clean test-built-assets

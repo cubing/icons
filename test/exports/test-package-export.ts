@@ -9,6 +9,8 @@ console.error = (s) => {
 const { CubingIcons } = await import("@cubing/icons/ts");
 
 assert(typeof CubingIcons === "object");
+assert.equal(CubingIcons.EventFto, "event-fto");
+assert.equal(CubingIcons.UnofficialFto, "unofficial-fto");
 assert.equal(
   capturedConsoleErrorMessage,
   "Using `@cubing/icons/ts` is deprecated. Please use `@cubing/icons/js` for the same functionality.",

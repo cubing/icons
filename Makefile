@@ -25,7 +25,11 @@ setup:
 	bun install --frozen-lockfile
 
 .PHONY: test
-test: test-bun test-exports lint
+test: test-bun test-exports test-built-assets lint
+
+.PHONY: test-built-assets
+test-built-assets: build
+	bun run script/test-built-assets.ts
 
 .PHONY: test-bun
 test-bun: setup

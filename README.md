@@ -4,6 +4,11 @@
 
 <https://icons.cubing.net>
 
+Use `cubing-icon event-fto` for Face-Turning Octahedron (FTO).
+The existing `cubing-icon unofficial-fto` class and `CubingIcons.UnofficialFto`
+export remain available. `event-unofficial-fto` is also supported as a CSS alias.
+The official icon is exported as `CubingIcons.EventFto` from `@cubing/icons/js`.
+
 ## Contributing
 
 Most development is simply adding/changing existing SVG files under the
