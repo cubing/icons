@@ -33,6 +33,10 @@ function mustExist<T>(t: T | null): NonNullable<T> {
   return t;
 }
 
+const deprecatedIconToReason = {
+  "unofficial-fto": "Use `events-fto` instead",
+};
+
 // Sort all current WCA events in the same order as the WCA website (ahead of former events).
 // We'd import this from `cubing.js`, but: https://github.com/cubing/cubing.js/issues/351
 const wcaEventOrdering = [
@@ -53,13 +57,15 @@ const wcaEventOrdering = [
   "444bf",
   "555bf",
   "333mbf",
+  "fto",
 ];
 const classNamesOrdered = wcaEventOrdering.map((eventID) => `event-${eventID}`);
 for (const className of Object.values(CubingIcons).sort()) {
   if (!className.match(/[a-zA-Z0-9-]+/)) {
     throw new Error("Unexpected class name.");
   }
-  if (!classNamesOrdered.includes(className)) {
+  const isDeprecated = className in deprecatedIconToReason;
+  if (!classNamesOrdered.includes(className) && !isDeprecated) {
     classNamesOrdered.push(className);
   }
 }
@@ -102,6 +108,30 @@ for (const prefix of ["event", "unofficial", "penalty"]) {
       codeElem.append(`cubing-icon ${className}`);
     }
   }
+}
+
+// Add deprecated icons.
+const [elem, ...extra] = document.getElementsByClassName(`group-deprecated`);
+if (!elem || extra.length > 0) {
+  throw new Error("Unexpected number of elems.");
+}
+const iconsList = mustExist(elem.querySelector("ul.icons-list"));
+iconsList.textContent = ""; // Clear all children.
+for (const [className, deprecationReason] of Object.entries(
+  deprecatedIconToReason,
+)) {
+  console.log(className);
+  const li = iconsList.appendChild(document.createElement("li"));
+  li.id = className;
+  const a = li.appendChild(document.createElement("a"));
+  a.href = `#${className}`;
+  const span = a.appendChild(document.createElement("span"));
+  span.classList.add("cubing-icon");
+  span.classList.add(className);
+  const codeElem = a.appendChild(document.createElement("code"));
+  codeElem.append(`cubing-icon ${className}`);
+  const deprecationReasonElem = a.appendChild(document.createElement("strong"));
+  deprecationReasonElem.append(deprecationReason);
 }
 
 mustExist(
