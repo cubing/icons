@@ -134,13 +134,24 @@ a.section-header-link:hover::before {
 .icons-list li a {
   height: 100%;
   background-color: color-mix(in oklab, currentColor 10%, transparent);
-  padding: 0.5em;
-  text-align: center;
   font-size: 0.7em;
   display: grid;
   grid-template-columns: auto;
   text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.icons-list a > div {
+  padding: 0.5em;
+  text-align: center;
+  display: grid;
+  grid-template-columns: auto;
+
+  &:not(:first-child) {
+    border-top: 1px solid color-mix(in oklab, currentColor 30%, transparent);
+    display: grid;
+    gap: 0.5em;
+  }
 }
 
 /* biome-ignore lint/style/noDescendingSpecificity: TODO */
@@ -181,7 +192,7 @@ a.section-header-link:hover::before {
   background-color: color-mix(in oklab, currentColor 30%, transparent);
 }
 
-.icons-list li a:hover code {
+.icons-list li a:hover div:first-child code {
   text-decoration: underline;
 }
 

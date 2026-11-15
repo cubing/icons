@@ -7,3 +7,5 @@ export {
   type CubingIconsId as CubingIconsClassName,
   type CubingIconsKey,
 } from "./cubing-icons";
+
+export { deprecatedIcons } from "./deprecated";

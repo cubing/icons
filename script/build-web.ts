@@ -2,6 +2,7 @@ import { default as assert } from "node:assert";
 import { cp, mkdir, readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { JSDOM } from "jsdom";
+import { deprecatedIcons } from "../src/js/deprecated";
 
 // Note that the imported file path must be an inline string to allow for type
 // checking, so we don't use `join(TEMP_LIB_OUTPUT_DIR, …)` to deduplicate the
@@ -33,10 +34,6 @@ function mustExist<T>(t: T | null): NonNullable<T> {
   return t;
 }
 
-const deprecatedIconToReason = {
-  "unofficial-fto": "Use `events-fto` instead",
-};
-
 // Sort all current WCA events in the same order as the WCA website (ahead of former events).
 // We'd import this from `cubing.js`, but: https://github.com/cubing/cubing.js/issues/351
 const wcaEventOrdering = [
@@ -59,20 +56,48 @@ const wcaEventOrdering = [
   "333mbf",
   "fto",
 ];
-const classNamesOrdered = wcaEventOrdering.map((eventID) => `event-${eventID}`);
-for (const className of Object.values(CubingIcons).sort()) {
+
+function validateClassName(className: string) {
   if (!className.match(/[a-zA-Z0-9-]+/)) {
     throw new Error("Unexpected class name.");
   }
-  const isDeprecated = className in deprecatedIconToReason;
-  if (!classNamesOrdered.includes(className) && !isDeprecated) {
-    classNamesOrdered.push(className);
+}
+
+const GROUP_NAMES = ["event", "unofficial", "penalty", "deprecated"] as const;
+function toGroupName(className: string): (typeof GROUP_NAMES)[number] {
+  if (deprecatedIcons[className]) {
+    return "deprecated";
+  }
+  for (const groupName of GROUP_NAMES) {
+    if (className.startsWith(`${groupName}-`)) {
+      return groupName;
+    }
+  }
+  throw new Error("Invalid group name.");
+}
+
+const classNamesOrdered: Record<(typeof GROUP_NAMES)[number], string[]> = {
+  event: wcaEventOrdering.map((eventID) => `event-${eventID}`),
+  unofficial: [],
+  penalty: [],
+  deprecated: [],
+};
+for (const className of Object.values(CubingIcons).sort()) {
+  validateClassName(className);
+  const groupNamesOrdered = classNamesOrdered[toGroupName(className)];
+  if (!groupNamesOrdered.includes(className)) {
+    groupNamesOrdered.push(className);
   }
 }
 
+const undeprecatedClassNamesOrdered: string[] = [
+  ...classNamesOrdered.event,
+  ...classNamesOrdered.unofficial,
+  ...classNamesOrdered.penalty,
+];
 const allIconsElem = mustExist(document.querySelector("#all-icons"));
 allIconsElem.textContent = "";
-for (const className of classNamesOrdered) {
+for (const className of undeprecatedClassNamesOrdered) {
   const a = allIconsElem.appendChild(document.createElement("a"));
   a.href = `#${className}`;
   const span = a.appendChild(document.createElement("span"));
@@ -86,52 +111,56 @@ for (const notice of notices) {
   notice.remove();
 }
 
-for (const prefix of ["event", "unofficial", "penalty"]) {
+function getGroupIconsList(prefix: string): Element {
   const [elem, ...extra] = document.getElementsByClassName(`group-${prefix}`);
   if (!elem || extra.length > 0) {
     throw new Error("Unexpected number of elems.");
   }
   const iconsList = mustExist(elem.querySelector("ul.icons-list"));
   iconsList.textContent = ""; // Clear all children.
-
-  for (const className of classNamesOrdered) {
-    if (className.startsWith(`${prefix}-`)) {
-      console.log(className);
-      const li = iconsList.appendChild(document.createElement("li"));
-      li.id = className;
-      const a = li.appendChild(document.createElement("a"));
-      a.href = `#${className}`;
-      const span = a.appendChild(document.createElement("span"));
-      span.classList.add("cubing-icon");
-      span.classList.add(className);
-      const codeElem = a.appendChild(document.createElement("code"));
-      codeElem.append(`cubing-icon ${className}`);
-    }
-  }
+  return iconsList;
 }
 
-// Add deprecated icons.
-const [elem, ...extra] = document.getElementsByClassName(`group-deprecated`);
-if (!elem || extra.length > 0) {
-  throw new Error("Unexpected number of elems.");
-}
-const iconsList = mustExist(elem.querySelector("ul.icons-list"));
-iconsList.textContent = ""; // Clear all children.
-for (const [className, deprecationReason] of Object.entries(
-  deprecatedIconToReason,
-)) {
+function addIconChip(
+  iconsList: Element,
+  className: string,
+  options?: {
+    deprecated?: boolean;
+  },
+) {
   console.log(className);
   const li = iconsList.appendChild(document.createElement("li"));
   li.id = className;
   const a = li.appendChild(document.createElement("a"));
   a.href = `#${className}`;
-  const span = a.appendChild(document.createElement("span"));
-  span.classList.add("cubing-icon");
-  span.classList.add(className);
-  const codeElem = a.appendChild(document.createElement("code"));
-  codeElem.append(`cubing-icon ${className}`);
-  const deprecationReasonElem = a.appendChild(document.createElement("strong"));
-  deprecationReasonElem.append(deprecationReason);
+  {
+    const div = a.appendChild(document.createElement("div"));
+    const span = div.appendChild(document.createElement("span"));
+    span.classList.add("cubing-icon");
+    span.classList.add(className);
+    const codeElem = div.appendChild(document.createElement("code"));
+    codeElem.append(`cubing-icon ${className}`);
+  }
+  if (options?.deprecated) {
+    const div = a.appendChild(document.createElement("div"));
+    const span = div.appendChild(document.createElement("span"));
+    span.textContent = "Replaced with: ";
+    const codeElem = div.appendChild(document.createElement("code"));
+    codeElem.classList.add("replacement");
+
+    const { replacement } = deprecatedIcons[className];
+    if (!replacement) {
+      throw new Error("So far, we only handle deprecated icons with");
+    }
+    codeElem.append(`cubing-icon ${replacement}`);
+  }
+}
+
+for (const prefix of GROUP_NAMES) {
+  const iconsList = getGroupIconsList(prefix);
+  for (const className of classNamesOrdered[prefix]) {
+    addIconChip(iconsList, className, { deprecated: prefix === "deprecated" });
+  }
 }
 
 mustExist(
