@@ -53,7 +53,6 @@ const wcaEventOrdering = [
   "444bf",
   "555bf",
   "333mbf",
-  "fto",
 ];
 const classNamesOrdered = wcaEventOrdering.map((eventID) => `event-${eventID}`);
 for (const className of Object.values(CubingIcons).sort()) {

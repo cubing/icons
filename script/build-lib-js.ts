@@ -32,11 +32,6 @@ await writeFile(
   join(LIB_OUTPUT_DIR, CUBING_ICONS_CSS_FILE_NAME),
   iconsCSSContents
     .replaceAll(".cubing-icon.icon-", ".cubing-icon.")
-    // Also accept the event-prefixed compatibility spelling for FTO.
-    .replaceAll(
-      ".cubing-icon.event-fto:before",
-      ".cubing-icon.event-fto:before, .cubing-icon.event-unofficial-fto:before",
-    )
     .replaceAll(
       ".cubing-icon:before {",
       ".cubing-icon:before {\n  vertical-align: -15%;",
