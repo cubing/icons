@@ -150,7 +150,9 @@ function addIconChip(
 
     const { replacement } = deprecatedIcons[className];
     if (!replacement) {
-      throw new Error("So far, we only handle deprecated icons with");
+      throw new Error(
+        "So far, we only handle deprecated icons with replacements.",
+      );
     }
     codeElem.append(`cubing-icon ${replacement}`);
   }
