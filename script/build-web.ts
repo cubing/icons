@@ -121,13 +121,10 @@ function getGroupIconsList(prefix: string): Element {
   return iconsList;
 }
 
-function addIconChip(
-  iconsList: Element,
-  className: string,
-  options?: {
-    deprecated?: boolean;
-  },
-) {
+/**
+ * Automatically adds a deprecation message depending on `className`.
+ */
+function addIconChip(iconsList: Element, className: string) {
   console.log(className);
   const li = iconsList.appendChild(document.createElement("li"));
   li.id = className;
@@ -141,14 +138,15 @@ function addIconChip(
     const codeElem = div.appendChild(document.createElement("code"));
     codeElem.append(`cubing-icon ${className}`);
   }
-  if (options?.deprecated) {
+  const deprecation = deprecatedIcons[className];
+  if (deprecation) {
     const div = a.appendChild(document.createElement("div"));
     const span = div.appendChild(document.createElement("span"));
     span.textContent = "Replaced with: ";
     const codeElem = div.appendChild(document.createElement("code"));
     codeElem.classList.add("replacement");
 
-    const { replacement } = deprecatedIcons[className];
+    const { replacement } = deprecation;
     if (!replacement) {
       throw new Error(
         "So far, we only handle deprecated icons with replacements.",
@@ -158,10 +156,10 @@ function addIconChip(
   }
 }
 
-for (const prefix of GROUP_NAMES) {
-  const iconsList = getGroupIconsList(prefix);
-  for (const className of classNamesOrdered[prefix]) {
-    addIconChip(iconsList, className, { deprecated: prefix === "deprecated" });
+for (const groupName of GROUP_NAMES) {
+  const iconsList = getGroupIconsList(groupName);
+  for (const className of classNamesOrdered[groupName]) {
+    addIconChip(iconsList, className);
   }
 }
 
